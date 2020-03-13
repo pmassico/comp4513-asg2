@@ -1,0 +1,18 @@
+figure {
+    position: relative;
+    margin: 5px;
+}
+
+.delete {
+    display: none;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+figure:hover .delete {
+    display: block;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
