@@ -2,7 +2,12 @@ const express = require("express");
 
 const app = express();
 
-app.use(express.json());
+const movieRoutes = require("./routes/movie-routes");
+const userRoutes = require("./routes/user-routes");
+const HttpError = require("./models/http-error");
+
+// dont need the json body parser anymore. built into express
+app.use(express.json({ extended: false }));
 
 // enable CORS requests
 app.use((req, res, next) => {
@@ -16,16 +21,13 @@ app.use((req, res, next) => {
   next();
 });
 
-// middleware to handle errors
-app.use((error, req, res, next) => {
-  // if response has already been sent just go next
-  if (res.headerSent) {
-    return next(error);
-  }
+// defined routes
+app.get("/", (req, res) => res.send("API Running"));
+app.use("/api/movies", movieRoutes);
 
-  // default error code to 500 if not set
-  res.status(error.code || 500);
-  res.json({ message: error.message || "An unknown error occured!" });
+// error handling for unsupported routes
+app.use((req, res, next) => {
+  return next(new HttpError("Could not find this route.", 404));
 });
 
 app.listen(5000);
