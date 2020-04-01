@@ -2,8 +2,11 @@ const express = require("express");
 
 const app = express();
 
-const movieRoutes = require("./routes/movie-routes");
-const userRoutes = require("./routes/user-routes");
+const movieRoutes = require("./routes/movieRoutes");
+// const userRoutes = require("./routes/userRoutes");
+const briefRoutes = require("./routes/briefRoutes");
+const findRoutes = require("./routes/findRoutes");
+const favouriteRoutes = require("./routes/favouriteRoutes");
 const HttpError = require("./models/http-error");
 
 // dont need the json body parser anymore. built into express
@@ -24,6 +27,10 @@ app.use((req, res, next) => {
 // defined routes
 app.get("/", (req, res) => res.send("API Running"));
 app.use("/api/movies", movieRoutes);
+app.use("/api/brief", briefRoutes);
+app.use("/api/find", findRoutes);
+// app.use('/api/login', userRoutes)
+app.use("/api/favourites", favouriteRoutes);
 
 // error handling for unsupported routes
 app.use((req, res, next) => {
