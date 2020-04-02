@@ -28,6 +28,12 @@ button {
     margin: 0;
 }
 
+.single-movie .media-left figure img {
+    height: 132px;
+    width: 92px;
+    border-right: 1px solid black;
+}
+
 .single-movie .media-left {
     margin: 0;
 }

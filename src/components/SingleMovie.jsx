@@ -16,7 +16,7 @@ class SingleMovie extends React.Component {
                 <div className="card-content">
                     <div className="media">
                         <div className="media-left">
-                            <figure className="image is-92x138">
+                            <figure className="image">
                                 <Link to='/details'>
                                     <img src={imgURL} onClick={ this.handleViewClick } title={this.props.movie.title} alt={this.props.movie.title} />
                                 </Link>

@@ -46,6 +46,11 @@ p {
     color: black;
 }
 
+.filter-dropdown {
+    font-family: 'Roboto Mono', 'cursive';
+    color: gray;
+}
+
 #footer-runtime, #footer-release, #footer-details {
     font-family: 'Roboto Mono', 'cursive';
     color: gray;

@@ -13,6 +13,7 @@
 
 .single-movie {
     flex-basis: auto;
+    margin-bottom: 1rem;
 }
 
 .single-movie:not(:last-child) {

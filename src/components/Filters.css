@@ -11,3 +11,19 @@
 .input {
     margin: 2px;
 }
+
+.filters-level-2, .filters-level-3 {
+    margin-left: 1rem;
+}
+
+ul {
+    list-style: none;
+}
+
+input:not(:checked) + ul {
+    display: none;
+}
+
+#filter, #sort, #year, #rating, #search  {
+    display: none;
+}

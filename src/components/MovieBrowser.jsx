@@ -45,6 +45,7 @@ class MovieBrowser extends React.Component {
                     <div id="movieList" className="tile is-child notification is-light">
                         {dataLoaded ? (
                             <div>
+
                                 <MovieList movies={this.props.movies} showMovieDetails={this.props.showMovieDetails} addToFavs={this.props.addToFavs} sortList={this.props.sortList}/>
                             </div>
                         ) : (
