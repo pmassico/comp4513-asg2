@@ -27,3 +27,12 @@ input:not(:checked) + ul {
 #filter, #sort, #year, #rating, #search  {
     display: none;
 }
+
+.filter-dropdown input[type=number] {
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    background-color: transparent;
+    width: 100px;
+    padding-bottom: 0px;
+}

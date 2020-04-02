@@ -7,7 +7,7 @@ class MovieList extends React.Component {
     render() {
         if (this.props.movies.length >= 1) {
             return (
-                <div><div className="title">browse</div>
+                <div>
                     {/*<table className="table is-striped is-bordered">*/}
                     {/*    <thead>*/}
                     {/*        <tr>*/}

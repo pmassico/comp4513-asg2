@@ -26,34 +26,21 @@ class MovieBrowser extends React.Component {
     render() {
         const dataLoaded = this.props.dataLoaded;
         return (
-            <div className="tile is-ancestor">
-                <div id="filterContent" className="tile is-4 is-parent">
-                    <div id="filterList" className="tile is-child notification is-light">
-                        <Filters applyFilters={this.props.applyFilters} resetFilters={this.props.resetFilters} hideFilters={this.hideFilters} showFilters={this.showFilters}/>
-                    </div>
+            <div id="browse-container">
+                <div id="browse-header">
+                    <div className="title">browse</div>
+                    <Filters applyFilters={this.props.applyFilters} resetFilters={this.props.resetFilters} hideFilters={this.hideFilters} showFilters={this.showFilters}/>
                 </div>
-                <div id="hiddenContentFilter" className="tile is-1 is-parent is-hidden">
-                    <div id="filterList" className="tile is-child notification is-light">
+                <div id="movieList">
+                    {dataLoaded ? (
                         <div>
-                            <div id="rightArrow" className="arrowPointerFilter">
-                                <i className="fa fa-arrow-circle-right" onClick={this.showFilters}></i>
-                            </div>
+                            <MovieList movies={this.props.movies} showMovieDetails={this.props.showMovieDetails} addToFavs={this.props.addToFavs} sortList={this.props.sortList}/>
                         </div>
-                    </div>
-                </div>
-                <div className="tile is-parent">
-                    <div id="movieList" className="tile is-child notification is-light">
-                        {dataLoaded ? (
-                            <div>
-
-                                <MovieList movies={this.props.movies} showMovieDetails={this.props.showMovieDetails} addToFavs={this.props.addToFavs} sortList={this.props.sortList}/>
-                            </div>
-                        ) : (
-                            <div id="loader">
-                                <img alt="content loading" src={load} />
-                            </div>
-                        )}
-                    </div>
+                    ) : (
+                        <div id="loader">
+                            <img alt="content loading" src={load} />
+                        </div>
+                    )}
                 </div>
             </div>
         );

@@ -12,3 +12,8 @@
   text-align: center;
 }
 
+#browse-header .title {
+    font-size: 3em;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}

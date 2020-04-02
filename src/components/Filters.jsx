@@ -64,22 +64,22 @@ class Filters extends React.Component {
                                                         <input id="beforeRadio" type="radio" name="answer"/>
                                                         before
                                                     </label>
-                                                    <input id="beforeRadioText" className="input" type="text" placeholder="Before"/>
+                                                    <input id="beforeRadioText" className="input" type="number"/>
                                                 </li>
                                                 <li>
                                                     <label className="radio">
                                                         <input id="afterRadio" type="radio" name="answer"/>
                                                         after
                                                     </label>
-                                                    <input id="afterRadioText" className="input" type="text" placeholder="After"/>
+                                                    <input id="afterRadioText" className="input" type="number"/>
                                                 </li>
                                                 <li>
                                                     <label className="radio">
                                                         <input id="betweenRadio" type="radio" name="answer"/>
                                                         between
                                                     </label>
-                                                    <input id="betweenRadioTextStart" className="input" type="text" placeholder="Between (Start)"/>
-                                                    <input id="betweenRadioTextEnd" className="input" type="text" placeholder="Between (End)"/>
+                                                    <input id="betweenRadioTextStart" className="input" type="number"/>
+                                                    <input id="betweenRadioTextEnd" className="input" type="number"/>
                                                 </li>
                                             </ul>
                                         </div>
@@ -94,22 +94,22 @@ class Filters extends React.Component {
                                                         <input id="belowRadio" type="radio" name="answer"/>
                                                         below
                                                     </label>
-                                                    <div>0<input id="belowSlider" className="slider is-fullwidth" step="1" min="0" max="10" type="range"/>10</div>
+                                                    <div><input id="belowSlider" className="slider is-fullwidth" step="1" min="0" max="10" type="range"/></div>
                                                 </li>
                                                 <li>
                                                     <label className="radio">
                                                         <input id="aboveRadio" type="radio" name="answer"/>
                                                         above
                                                     </label>
-                                                    <div>0<input id="aboveSlider" className="slider is-fullwidth" step="1" min="0" max="10" type="range"/>10</div>
+                                                    <div><input id="aboveSlider" className="slider is-fullwidth" step="1" min="0" max="10" type="range"/></div>
                                                 </li>
                                                 <li>
                                                     <label className="radio">
                                                         <input id="betweenRadioRatings" type="radio" name="answer"/>
                                                         between
                                                     </label>
-                                                    <div>0<input id="betweenSliderStart" className="slider is-fullwidth" step="1" min="0" max="10" type="range"/>10</div>
-                                                    <div>0<input id="betweenSliderEnd" className="slider is-fullwidth" step="1" min="0" max="10" type="range"/>10</div>
+                                                    <div><input id="betweenSliderStart" className="slider is-fullwidth" step="1" min="0" max="10" type="range"/></div>
+                                                    <div><input id="betweenSliderEnd" className="slider is-fullwidth" step="1" min="0" max="10" type="range"/></div>
                                                 </li>
                                             </ul>
                                         </div>
