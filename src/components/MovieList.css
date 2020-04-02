@@ -5,3 +5,17 @@
 .clickableSorts {
     cursor: pointer;
 }
+
+.movielist-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.single-movie {
+    flex-basis: auto;
+}
+
+.single-movie:not(:last-child) {
+    margin-right: 1rem;
+}
+

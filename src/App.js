@@ -228,18 +228,19 @@ class App extends React.Component {
             <main>
             <Route path='/' exact
                 render={ (props) =>
-                    <Home 
-                        searchFilter={this.searchFilter}
-                        resetFilters={this.resetFilters}
-                    />
+                            <Home
+                                searchFilter={this.searchFilter}
+                                resetFilters={this.resetFilters}
+                            />
                 }
             />
             <Route path='/home' exact 
                 render={ (props) =>
-                    <Home 
-                        searchFilter={this.searchFilter}
-                        resetFilters={this.resetFilters}
-                    />
+                            <Home
+                                searchFilter={this.searchFilter}
+                                resetFilters={this.resetFilters}
+                            />
+
                 }
             />
             <Route path='/details' exact

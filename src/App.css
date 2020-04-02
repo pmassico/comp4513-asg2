@@ -14,3 +14,40 @@ max-height: 200px;
 background-color: #9e8949;
 transition: all 400ms;
 }
+
+/* typography */
+
+h1 {
+    font-family: 'Baloo 2', 'cursive';
+}
+
+h2, h3, h4, h5, h6, .title {
+    font-family: 'Avenir', 'cursive';
+}
+
+button {
+    font-family: 'Avenir-Medium', 'cursive';
+}
+
+input {
+    font-family: 'Avenir-Book', 'cursive';
+}
+
+p {
+    font-family: 'Avenir-Book', 'cursive';
+}
+
+.single-movie .title {
+    font-family: 'Avenir-Black', 'cursive';
+    color: black;
+}
+
+.single-movie .subtitle {
+    color: black;
+}
+
+#footer-runtime, #footer-release, #footer-details {
+    font-family: 'Roboto Mono', 'cursive';
+    color: gray;
+    font-size: 80%;
+}

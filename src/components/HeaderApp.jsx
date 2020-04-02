@@ -6,7 +6,7 @@ import './Header.css';
 //This component is the header that hold the header components
 const HeaderApp = function (props) {
     return (
-        <header className="hero medium is-info">
+        <header className="hero medium">
             <div className="hero-body">
                 <HeaderBar />
                 <About />
