@@ -76,7 +76,6 @@ app.use((req, res, next) => {
 });
 
 // defined routes
-app.get("/", (req, res) => res.send("API Running"));
 app.use("/api/movies", movieRoutes);
 app.use("/api/brief", briefRoutes);
 app.use("/api/find", findRoutes);
