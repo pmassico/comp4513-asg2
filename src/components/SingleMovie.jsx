@@ -23,7 +23,7 @@ class SingleMovie extends React.Component {
                             </figure>
                         </div>
                         <div className="media-content">
-                            <Link to='/details' id="single-movie-title"><p className="title is-4">{this.props.movie.title}</p></Link>
+                            <Link to='/details' id="single-movie-title" ><p className="title is-4" onClick={ this.handleViewClick } >{this.props.movie.title}</p></Link>
                             <p className="subtitle is-7">{this.props.movie.overview}</p>
                         </div>
                     </div>
@@ -34,7 +34,7 @@ class SingleMovie extends React.Component {
                     <p className="card-footer-item" id="footer-release">
                         {this.props.movie.release_date}
                     </p>
-                    <p className="card-footer-item" id="footer-details"><Link to="/details">Details</Link></p>
+                    <p className="card-footer-item" id="footer-details" onClick={ this.handleViewClick }><Link to="/details">Details</Link></p>
                     <button className="card-footer-item button" id="footer-button" onClick={()=> this.props.addToFavs(this.props.movie) }>❤</button>
                 </footer>
             </div>

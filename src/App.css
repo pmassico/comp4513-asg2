@@ -29,11 +29,8 @@ button {
     font-family: 'Avenir-Medium', 'cursive';
 }
 
-input {
+input, p {
     font-family: 'Avenir-Book', 'cursive';
-}
-
-p {
     font-family: 'Avenir-Book', 'cursive';
 }
 
@@ -55,4 +52,12 @@ p {
     font-family: 'Roboto Mono', 'cursive';
     color: gray;
     font-size: 80%;
+}
+
+#details-container .is-3 {
+    font-family: "Avenir-Black", 'cursive';
+}
+
+#details-container p, #details-container .title, #details-container li {
+    color: black;
 }

@@ -249,7 +249,6 @@ class App extends React.Component {
             render={ (props) =>
             <React.Fragment>
             <HeaderApp movie={this.state.favs} showMovieDetails={this.showMovieDetails} deleteFav={this.deleteFav}/>
-            {/*<Favorites movie={this.state.favs} showMovieDetails={this.showMovieDetails} deleteFav={this.deleteFav} />*/}
                 <MovieDetails
                     movie={this.state.singleMovieDetails}
                     selectedMovie={this.state.currentMovie}
@@ -264,7 +263,6 @@ class App extends React.Component {
             render={ (props) =>
                 <React.Fragment>
                 <HeaderApp movie={this.state.favs} showMovieDetails={this.showMovieDetails} deleteFav={this.deleteFav} />
-                {/*<Favorites movie={this.state.favs} showMovieDetails={this.showMovieDetails} deleteFav={this.deleteFav} />*/}
                 <CastDetails
                     movie={this.state.singleMovieDetails} 
                     cast={this.state.singleCastDetails} 

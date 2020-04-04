@@ -31,21 +31,28 @@ class MovieDetails extends React.Component {
         const imdb = `https://www.imdb.com/title/${this.props.movie.imdb_id}`;
         const moviedb = `https://www.themoviedb.org/movie/${this.props.movie.tmdb_id}`;
         return (
-            <div className="tile is-ancestor">
+            <div className="tile is-ancestor" id="details-container">
                 <div className="tile is-8 is-parent">
                     {this.props.dataDetailsLoaded ? (
                         <div id="castDetails" className="tile is-child notification is-light columns">
-                            <div className="title is-5 has-text-left-desktop column">
-                                {this.props.movie.title}
+                            <div className="has-text-left-desktop column">
                                 <SingleMovieImage movie={this.props.movie}/>
-                            </div>
-                            <div className="column is-8">
                                 <div id="addToFavs">
-                                    <button className="button is-dark" onClick={()=> this.props.addToFavs(this.props.selectedMovie) }>Add To Favorites</button>
+                                    <button className="button is-dark" onClick={()=> this.props.addToFavs(this.props.selectedMovie) }>❤</button>
                                     <Link to='/browse'>
                                         <button className="button is-dark is-pulled-right">Close</button>
                                     </Link>
                                 </div>
+                            </div>
+                            <div className="column is-8">
+                                <div className="title is-3">
+                                    {this.props.movie.title}
+                                </div>
+                                <div id="meta">
+                                    <p><AverageRating rating={this.props.movie.ratings.average}/> ({this.props.movie.ratings.count})</p>
+                                    <p>{this.props.movie.release_date}</p>
+                                </div>
+
                                 <div className="box">
                                     <h1 className="title is-5">Overview</h1>
                                     <ul className="list">
@@ -55,7 +62,6 @@ class MovieDetails extends React.Component {
                                 <div className="box">
                                     <h1 className="title is-5">Info</h1>
                                     <ul className="list">
-                                        <li className="list-item">Release Date: {this.props.movie.release_date}</li>
                                         <li className="list-item">Revenue: ${this.formatMoney(this.props.movie.revenue)}</li>
                                         <li className="list-item">Runtime: {this.props.movie.runtime} minutes</li>
                                         <li className="list-item">Tagline: {this.props.movie.tagline}</li>
@@ -66,20 +72,6 @@ class MovieDetails extends React.Component {
                                     <ul className="list">
                                         <li className="list-item"><a href={imdb} target="_blank" rel="noopener noreferrer">IMBD Page</a></li>
                                         <li className="list-item"><a href={moviedb} target="_blank" rel="noopener noreferrer">TMBD Page</a></li>
-                                    </ul>
-                                </div>
-                                <div className="box">
-                                    <h1 className="title is-5">Ratings</h1>
-                                    <ul className="list">
-                                        <li className="list-item">Popularity: {this.props.movie.ratings.popularity}</li>
-                                        <li className="list-item">Average: <AverageRating rating={this.props.movie.ratings.average}/></li>
-                                        <li className="list-item">Count: {this.props.movie.ratings.count}</li>
-                                    </ul>
-                                </div>
-                                <div className="box">
-                                    <h1 className="title is-5">Companies</h1>
-                                    <ul className="list">
-                                        {this.props.movie.production.companies != null ? this.props.movie.production.companies.map ( (m) => <li className="list-item">{m.name}</li> ) : <li className="list-item">Movie is missing company data.</li>}
                                     </ul>
                                 </div>
                                 <div className="box">

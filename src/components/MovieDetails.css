@@ -7,3 +7,18 @@ button {
     margin-bottom: 10px;
 }
 
+#details-container .box {
+    border-radius: 0;
+    border: 1px solid black;
+}
+
+#details-container .box .list {
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+}
+
+#meta p {
+    font-family: "Roboto Mono", 'cursive';
+    color: grey;
+}
