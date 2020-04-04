@@ -15,11 +15,9 @@ const strategy = new LocalStrategy(localOpt, async (email, password, done) => {
         const userChosen = await UserModel.findOne({ email: email });
       
         if( !userChosen ){
-            console.log("not found");
             //If the user isn't found in the database, set flash message
             return done(null, false, { message : 'Email not found'});
         }
-        console.log("userChosen Here: " + userChosen);
         // Validate password and make sure it matches with the corresponding hash
         //stored in the database. If the passwds match, it returns a value of true.
         const validate = await userChosen.isValidPassword(password);
