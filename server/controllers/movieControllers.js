@@ -2,17 +2,26 @@ const mongoose = require("mongoose");
 
 const HttpError = require("../models/http-error");
 
-const getAllMovies = (req, res, next) => {
-  const movies = { message: "all movies" };
+const Movie = require("../models/Movie");
 
-  res.json(movies);
+const getAllMovies = async (req, res, next) => {
+  try {
+    const movies = await Movie.find();
+    res.json(movies);
+  } catch (error) {
+    res.json(error);
+  }
 };
 
-const getMovieById = (req, res) => {
+const getMovieById = async (req, res) => {
   const id = req.params.id;
-  const movie = { message: `the movie with id of ${id}` };
-
-  res.json(movie);
+  let movie;
+  try {
+    movie = await Movie.find({ id: id });
+    res.json(movie);
+  } catch (error) {
+    res.json(error);
+  }
 };
 
 const getBriefSet = (req, res) => {
