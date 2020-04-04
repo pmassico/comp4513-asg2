@@ -21,13 +21,46 @@ const movieSchema = new mongoose.Schema({
       {
         id: Number,
         name: String
-      },
+      }
+    ],
+    keywords: [
       {
         id: Number,
         name: String
-      },
+      }
+    ]
+  },
+  production: {
+    crew: [
       {
+        credit_id: String,
+        department: String,
+        gender: Number,
         id: Number,
+        job: String,
+        name: String
+      }
+    ],
+    cast: [
+      {
+        cast_id: Number,
+        character: String,
+        credit_id: String,
+        gender: Number,
+        id: Number,
+        name: String,
+        order: Number
+      }
+    ],
+    companies: [
+      {
+        name: String,
+        id: Number
+      }
+    ],
+    countries: [
+      {
+        iso_3166_1: String,
         name: String
       }
     ]
