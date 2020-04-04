@@ -57,8 +57,8 @@ class About extends React.Component {
 
     render() {
         return(
-            <div className="container">
-                <button className="button is-dark is-pulled-right" onClick={this.toggleModal}>About</button>
+            <div>
+                <button className="button is-pulled-right" onClick={this.toggleModal}>About</button>
 
                 <Modal 
                     closeModal={this.toggleModal} 

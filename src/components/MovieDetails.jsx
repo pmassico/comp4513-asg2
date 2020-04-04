@@ -35,7 +35,7 @@ class MovieDetails extends React.Component {
                 <div className="tile is-8 is-parent">
                     {this.props.dataDetailsLoaded ? (
                         <div id="castDetails" className="tile is-child notification is-light columns">
-                            <div className="title is-4 has-text-left-desktop column">
+                            <div className="title is-5 has-text-left-desktop column">
                                 {this.props.movie.title}
                                 <SingleMovieImage movie={this.props.movie}/>
                             </div>
@@ -45,6 +45,12 @@ class MovieDetails extends React.Component {
                                     <Link to='/browse'>
                                         <button className="button is-dark is-pulled-right">Close</button>
                                     </Link>
+                                </div>
+                                <div className="box">
+                                    <h1 className="title is-5">Overview</h1>
+                                    <ul className="list">
+                                        <li className="list-item">{this.props.movie.details.overview}</li>
+                                    </ul>
                                 </div>
                                 <div className="box">
                                     <h1 className="title is-5">Info</h1>
@@ -60,12 +66,6 @@ class MovieDetails extends React.Component {
                                     <ul className="list">
                                         <li className="list-item"><a href={imdb} target="_blank" rel="noopener noreferrer">IMBD Page</a></li>
                                         <li className="list-item"><a href={moviedb} target="_blank" rel="noopener noreferrer">TMBD Page</a></li>
-                                    </ul>
-                                </div>
-                                <div className="box">
-                                    <h1 className="title is-5">Overview</h1>
-                                    <ul className="list">
-                                        <li className="list-item">{this.props.movie.details.overview}</li>
                                     </ul>
                                 </div>
                                 <div className="box">

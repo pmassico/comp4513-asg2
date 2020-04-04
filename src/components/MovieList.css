@@ -2,6 +2,11 @@
     cursor: pointer;
 }
 
+#movieList {
+    overflow: scroll;
+    height: calc(100vh - 200px);
+}
+
 .clickableSorts {
     cursor: pointer;
 }
