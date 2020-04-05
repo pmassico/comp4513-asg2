@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const HttpError = require("../models/http-error");
 
 const Movie = require("../models/Movie");
+const MovieBrief = require("../models/Movie-Brief");
 
 const getAllMovies = async (req, res, next) => {
   try {
@@ -24,26 +25,37 @@ const getMovieById = async (req, res) => {
   }
 };
 
-const getBriefSet = (req, res) => {
-  const movies = { message: "brief set of movies" };
-
-  res.json(movies);
+const getBriefSet = async (req, res) => {
+  let briefSet;
+  try {
+    briefSet = await MovieBrief.find();
+    res.json(briefSet);
+  } catch (error) {
+    res.json(error);
+  }
 };
 
-const getBySubstring = (req, res) => {
+const getBySubstring = async (req, res) => {
   const substring = req.params.substring;
-  const movies = { message: `movies with substring of ${substring}` };
-
-  res.json(movies);
+  let movies;
+  try {
+    movies = await Movie.find({ title: { $regex: substring, $options: "i" } });
+    res.json(movies);
+  } catch (error) {
+    res.json(error);
+  }
 };
 
-const getByYear = (req, res) => {
+const getByYear = async (req, res) => {
   const y1 = req.params.y1;
   const y2 = req.params.y2;
-
-  const movies = { message: `movies between ${y1} and ${y2}` };
-
-  res.json(movies);
+  let movies;
+  try {
+    movies = await Movie.find();
+    res.json(movies);
+  } catch (error) {
+    res.json(error);
+  }
 };
 
 const getByRating = (req, res) => {
