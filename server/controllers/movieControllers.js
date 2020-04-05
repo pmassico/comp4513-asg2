@@ -58,13 +58,18 @@ const getByYear = async (req, res) => {
   }
 };
 
-const getByRating = (req, res) => {
+// /api/find/rating/:r1/:r2
+const getByRating = async (req, res) => {
   const r1 = req.params.r1;
   const r2 = req.params.r2;
+  let movies;
 
-  const movies = { message: `movies with rating between ${r1} and ${r2}` };
-
-  res.json(movies);
+  try {
+    movies = await Movie.find({ "ratings.average": { $gte: r1, $lte: r2 } });
+    res.json(movies);
+  } catch (error) {
+    res.json(error);
+  }
 };
 
 const getFavourites = (req, res) => {
