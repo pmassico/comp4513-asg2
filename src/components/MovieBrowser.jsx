@@ -28,7 +28,7 @@ class MovieBrowser extends React.Component {
         return (
             <div id="browse-container">
                 <div id="browse-header">
-                    <div className="title">browse</div>
+                    <div className="title is-3" id="browse-title">browse</div>
                     <Filters applyFilters={this.props.applyFilters} resetFilters={this.props.resetFilters} hideFilters={this.hideFilters} showFilters={this.showFilters}/>
                 </div>
                 <div id="movieList">

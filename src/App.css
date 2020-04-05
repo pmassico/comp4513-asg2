@@ -54,10 +54,17 @@ input, p {
     font-size: 80%;
 }
 
-#details-container .is-3 {
+#details-container .is-3, #details-container .is-2 {
     font-family: "Avenir-Black", 'cursive';
+    font-size: 3em;
 }
 
 #details-container p, #details-container .title, #details-container li {
+    color: black;
+}
+
+/* movie browser title */
+#browse-title {
+    font-family: "Avenir-Black", 'cursive';
     color: black;
 }

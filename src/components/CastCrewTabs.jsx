@@ -25,8 +25,8 @@ class CastCrewTabs extends React.Component {
         return (
             <div>
                 {this.props.dataDetailsLoaded ? (
-                    <div id="crewTabs" className="tile is-child notification is-light">
-                        <section className="hero is-dark">
+                    <div id="crewTabs" className="tile is-child">
+                        <section className="hero">
                             <div className="hero-foot">
                                 <nav className="tabs is-boxed is-fullwidth is-large">
                                     <div className="container">

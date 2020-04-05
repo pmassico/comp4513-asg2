@@ -1,15 +1,15 @@
 #castDetails {
-    overflow: scroll;
-    height: 800px;
+    /*overflow: scroll;*/
+    /*height: 800px;*/
 }
 
-button {
-    margin-bottom: 10px;
+#main-details {
+    width: 100%;
 }
 
 #details-container .box {
     border-radius: 0;
-    border: 1px solid black;
+    box-shadow: none;
 }
 
 #details-container .box .list {
@@ -22,3 +22,29 @@ button {
     font-family: "Roboto Mono", 'cursive';
     color: grey;
 }
+
+/* spacing */
+#details-title {
+    margin-top: 0.5em;
+}
+
+#count {
+    font-size: 0.8em;
+    margin-bottom: 2em;
+}
+
+#details-release-date {
+    margin-bottom: 2em;
+}
+
+#poster-div {
+    padding-right: 0;
+    max-width: 341px;
+}
+
+#details-div {
+    padding-right: 0;
+}
+
+
+

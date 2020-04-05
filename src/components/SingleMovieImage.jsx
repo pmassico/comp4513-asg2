@@ -56,18 +56,18 @@ class SingleMovieImage extends React.Component {
     }
 
     render() {
-        const imgURL = `https://image.tmdb.org/t/p/w185${this.props.movie.poster}`;
-        const imgURL2 = `https://image.tmdb.org/t/p/w500${this.props.movie.poster}`;
+        const imgURL = `https://image.tmdb.org/t/p/w342${this.props.movie.poster}`;
+        const imgURL2 = `https://image.tmdb.org/t/p/w780${this.props.movie.poster}`;
         return(
-            <div className="container" id="details-poster">
-                <img alt="movie poster" src={imgURL} onClick={this.toggleModal} />
+            <div className="" id="details-poster">
+                <img alt="movie poster" src={imgURL} onClick={this.toggleModal} id="details-poster" />
                 <Modal
                     closeModal={this.toggleModal}
                     modalState={this.state.modalState}
                     title={this.props.movie.title}
                 >
                     <div id="pictureIMG">
-                        <img alt="movie poster" src={imgURL2} />
+                        <img alt="movie poster" src={imgURL2} id="modal-poster" />
                     </div>
                 </Modal>
             </div>
