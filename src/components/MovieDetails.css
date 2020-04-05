@@ -40,11 +40,35 @@
 #poster-div {
     padding-right: 0;
     max-width: 341px;
+    min-width: 341px;
 }
 
 #details-div {
     padding-right: 0;
 }
 
+#details-tagline {
+    margin-bottom: 2em;
+}
 
+.tag {
+    margin-bottom: 0.5em;
+    margin-right: 0.5em;
+}
+
+#details-div {
+    min-width: 300px;
+}
+
+#details-overview-div {
+    padding-left: 2em;
+}
+
+#details-info-div {
+    padding-right: 2em;
+}
+
+/*#details-div {*/
+/*    max-width: 400px;*/
+/*}*/
 

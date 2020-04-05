@@ -6,13 +6,10 @@ class Filters extends React.Component {
     componentDidMount() {
         // show apply button when any checkbox is checked
         let radio = document.querySelectorAll("[type=radio]");
-        console.log(radio);
         radio.forEach(r => {
             r.addEventListener('change', (e) => {
-                console.log(e.currentTarget);
                 document.querySelector("#apply-filter").classList.remove("hidden");
             });
-            console.log(r)
         })
     }
 
@@ -68,7 +65,6 @@ class Filters extends React.Component {
 
     // wait until filters are turned into routes
     addTags = (...filters) => {
-        console.log(filters);
         filters.forEach(f => {
             if (f != null && f !== false && f !== true) {
                 // let tag = <div className="tag">{f}</div>;

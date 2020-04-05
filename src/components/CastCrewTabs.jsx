@@ -23,22 +23,18 @@ function openTab(evt, tabName) {
 class CastCrewTabs extends React.Component {  
     render() {
         return (
-            <div>
+            <div id="tabs-container">
                 {this.props.dataDetailsLoaded ? (
                     <div id="crewTabs" className="tile is-child">
-                        <section className="hero">
-                            <div className="hero-foot">
-                                <nav className="tabs is-boxed is-fullwidth is-large">
-                                    <div className="container">
-                                        <ul>
-                                            <li className="tab is-active" onClick={(e) => openTab(e,'Cast')}><a style={{ textDecoration: 'none' }}>Cast</a></li>
-                                            <li className="tab" onClick={(e) => openTab(e,'Crew')}><a style={{ textDecoration: 'none' }}>Crew</a></li>
-                                        </ul>
-                                    </div>
-                                </nav>
-                            </div>
-                        </section>
-                        <div className="container section">
+                        <div className="hero-foot">
+                            <nav className="tabs is-medium">
+                                <ul>
+                                    <li className="tab is-active" onClick={(e) => openTab(e,'Cast')}><a style={{ textDecoration: 'none', color: 'black' }}>Cast</a></li>
+                                    <li className="tab" onClick={(e) => openTab(e,'Crew')}><a style={{ textDecoration: 'none', color: 'black' }}>Crew</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div id="tab-content-container">
                             <div id="Cast" className="content-tab" >
                                 <table class="table is-striped is-bordered">
                                     <thead>
