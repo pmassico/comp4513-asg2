@@ -49,12 +49,33 @@ const getBySubstring = async (req, res) => {
 const getByYear = async (req, res) => {
   const y1 = req.params.y1;
   const y2 = req.params.y2;
+  console.log(y1 + y2);
+
   let movies;
   try {
     movies = await Movie.find();
-    res.json(movies);
   } catch (error) {
     res.json(error);
+  }
+
+  console.log(movies[0].release_date);
+  console.log(
+    movies[0].release_date.slice(0, 4) >= 2004 &&
+      movies[0].release_date.slice(0, 4) <= 2008
+  );
+
+  const filteredMovies = movies.filter(
+    movie =>
+      movie.release_date.slice(0, 4) >= y1 &&
+      movie.release_date.slice(0, 4) <= y2
+  );
+
+  console.log(movies[0].release_date);
+
+  if (filteredMovies) {
+    res.json(filteredMovies);
+  } else {
+    res.json();
   }
 };
 
