@@ -8,17 +8,18 @@ class FavoriteItem extends React.Component {
     //shows movie details if favorite item clicked
     handleViewClick = () => {
         this.props.showMovieDetails(this.props.movie);
-    }
+    };
     
     //deltes the favorite item if the x is clicked
-    handleDeleteClick = () => {
+    handleDeleteClick = (e) => {
+        e.preventDefault();
         this.props.deleteFav(this.props.movie.id);
-    }
+    };
     
     render() {
         const imgURL = `https://image.tmdb.org/t/p/w92${this.props.movie.poster}`;
         return (
-            <div>
+            <div className="dropdown-item">
                 <figure>
                     <Link to='/details'>
                         <img alt="favorite movie" src={imgURL} className="image" onClick={ this.handleViewClick } title={this.props.movie.title} alt={this.props.movie.title} />

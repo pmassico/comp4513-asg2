@@ -11,3 +11,73 @@
 .input {
     margin: 2px;
 }
+
+.filters-level-2, .filters-level-3 {
+    margin-left: 2rem;
+}
+
+ul {
+    list-style: none;
+}
+
+input:not(:checked) + ul {
+    display: none;
+}
+
+#filter, #sort, #year, #rating, #search  {
+    display: none;
+}
+
+.filter-dropdown input[type=number] {
+    box-shadow: none;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    border-bottom: 2px solid lightgrey;
+    background-color: transparent;
+    width: 75px;
+    padding-bottom: 0px;
+    padding-right: 0px;
+
+    border-radius: 0px;
+    margin-top: -15px;
+}
+
+.filter-dropdown input[type=number]:focus {
+    border-bottom: 2px solid black;
+}
+
+.filter-dropdown #searchBox:focus {
+    border-bottom: 2px solid black;
+}
+
+.filter-dropdown #searchBox {
+    box-shadow: none;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    border-bottom: 2px solid lightgrey;
+    background-color: transparent;
+    width: 150px;
+    padding-bottom: 0px;
+    padding-right: 0px;
+
+    border-radius: 0px;
+    margin-top: -5px;
+}
+
+.filters-level-3 li {
+    padding-bottom: 10px;
+}
+
+#apply-filter, #clear-filter {
+    font-family: "Roboto Mono", 'cursive';
+    font-size: 0.75em;
+    color: gray;
+    border-radius: 0;
+    padding: 7px 12px 7px 12px;
+}
+
+.hidden {
+    display: none;
+}

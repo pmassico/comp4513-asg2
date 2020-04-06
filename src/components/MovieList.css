@@ -2,6 +2,26 @@
     cursor: pointer;
 }
 
+#movieList {
+    overflow: scroll;
+    height: calc(100vh - 225px);
+}
+
 .clickableSorts {
     cursor: pointer;
 }
+
+.movielist-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.single-movie {
+    flex-basis: auto;
+    margin-bottom: 1rem;
+}
+
+.single-movie:not(:last-child) {
+    margin-right: 1rem;
+}
+

@@ -1,18 +1,23 @@
-figure {
-    position: relative;
-    margin: 5px;
-}
+/*figure {*/
+/*    position: relative;*/
+/*    margin: 5px;*/
+/*}*/
 
 .delete {
-    display: none;
+    display: block;
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: 10px;
+    left: 20px;
 }
 
 figure:hover .delete {
     display: block;
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: 10px;
+    left: 20px;
 }
+
+/* TODO
+favorites needs max height and overflow scroll
+delete button doesn't work in dropdown :( -> change or make work????
+*/

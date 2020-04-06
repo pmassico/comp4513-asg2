@@ -1,4 +1,13 @@
 #crewTabs {
-    overflow: scroll;
-    height: 800px;
+    height: 480px;
+    overflow-y: scroll;
+}
+
+#Cast, #Crew {
+    height: 100%;
+}
+
+#cast-crew-div {
+    min-width: 340px;
+    max-width: 500px;
 }

@@ -61,10 +61,10 @@ class App extends React.Component {
             const response = await fetch(url);
             const json = await response.json();
             this.setState( {singleMovieDetails: json, dataDetailsLoaded: true } );
-        }
+        };
 
         request();
-    }
+    };
      //get cast details (requires fetch to themoviedb API)
      showCastDetails = (cast) => {
         this.setState({ currentCast: cast });
@@ -221,32 +221,34 @@ class App extends React.Component {
         data.splice(removeIndex, 1);
         //3. add back to state
         this.setState({favs:data});
-    }
+        // show dropdown again
+    };
+
 
     render() {
         return (    
             <main>
             <Route path='/' exact
                 render={ (props) =>
-                    <Home 
-                        searchFilter={this.searchFilter}
-                        resetFilters={this.resetFilters}
-                    />
+                            <Home
+                                searchFilter={this.searchFilter}
+                                resetFilters={this.resetFilters}
+                            />
                 }
             />
             <Route path='/home' exact 
                 render={ (props) =>
-                    <Home 
-                        searchFilter={this.searchFilter}
-                        resetFilters={this.resetFilters}
-                    />
+                            <Home
+                                searchFilter={this.searchFilter}
+                                resetFilters={this.resetFilters}
+                            />
+
                 }
             />
             <Route path='/details' exact
             render={ (props) =>
             <React.Fragment>
-            <HeaderApp />
-            <Favorites movie={this.state.favs} showMovieDetails={this.showMovieDetails} deleteFav={this.deleteFav} />
+            <HeaderApp movie={this.state.favs} showMovieDetails={this.showMovieDetails} deleteFav={this.deleteFav}/>
                 <MovieDetails
                     movie={this.state.singleMovieDetails}
                     selectedMovie={this.state.currentMovie}
@@ -260,8 +262,7 @@ class App extends React.Component {
             <Route path='/details/cast' exact
             render={ (props) =>
                 <React.Fragment>
-                <HeaderApp />
-                <Favorites movie={this.state.favs} showMovieDetails={this.showMovieDetails} deleteFav={this.deleteFav} />
+                <HeaderApp movie={this.state.favs} showMovieDetails={this.showMovieDetails} deleteFav={this.deleteFav} />
                 <CastDetails
                     movie={this.state.singleMovieDetails} 
                     cast={this.state.singleCastDetails} 
@@ -276,8 +277,8 @@ class App extends React.Component {
             <Route path='/browse' exact
             render={ (props) =>
                 <React.Fragment>
-                <HeaderApp />
-                <Favorites movie={this.state.favs} showMovieDetails={this.showMovieDetails} deleteFav={this.deleteFav} />
+                <HeaderApp movie={this.state.favs} showMovieDetails={this.showMovieDetails} deleteFav={this.deleteFav}/>
+                {/*<Favorites movie={this.state.favs} showMovieDetails={this.showMovieDetails} deleteFav={this.deleteFav} />*/}
                 <MovieBrowser
                     movies={this.state.movies}
                     updatePhoto={this.updatePhoto}
