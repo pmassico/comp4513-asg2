@@ -19,7 +19,7 @@ const getMovieById = async (req, res) => {
   let movie;
   try {
     movie = await Movie.find({ id: id });
-    res.json(movie);
+    res.json(movie[0]);
   } catch (error) {
     res.json(error);
   }

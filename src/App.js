@@ -55,12 +55,13 @@ class App extends React.Component {
     //get the details of a specific requested movie (requires new fetch)
      showMovieDetails = (movie) => {
         this.setState({ currentMovie: movie });
-        const url = `https://www.randyconnolly.com/funwebdev/3rd/api/movie/movies.php?id=${movie.id}`; /*`http://localhost:5000/api/movies/${movie.id}`*/
+        const url = /*`https://www.randyconnolly.com/funwebdev/3rd/api/movie/movies.php?id=${movie.id}`;*/ `http://localhost:5000/api/movies/${movie.id}`;
 
         const request = async () => {
             console.log(url);
             const response = await fetch(url);
             const json = await response.json();
+            console.log(json);
             this.setState( {singleMovieDetails: json, dataDetailsLoaded: true } );
         };
 
