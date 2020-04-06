@@ -1,3 +1,7 @@
+<<<<<<< Updated upstream
 "scripts": {
   "start": "node ./server/server.js"
 }
+=======
+web: nodemon server/server.js
+>>>>>>> Stashed changes

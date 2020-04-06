@@ -5,7 +5,12 @@
   "main": "./server/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+<<<<<<< Updated upstream
     "server": "nodemon ./server/server.js"
+=======
+    "server": "nodemon ./server/server.js",
+    "start": "nodemon ./server/server.js"
+>>>>>>> Stashed changes
   },
   "author": "",
   "license": "ISC",
@@ -13,11 +18,19 @@
     "bcrypt": "^4.0.1",
     "concurrently": "^5.1.0",
     "cookie-parser": "^1.4.5",
+<<<<<<< Updated upstream
+=======
+    "dotenv": "^8.2.0",
+>>>>>>> Stashed changes
     "ejs": "^3.0.2",
     "express": "^4.17.1",
     "express-ejs-layouts": "^2.5.0",
     "express-flash": "0.0.2",
     "express-session": "^1.17.0",
+<<<<<<< Updated upstream
+=======
+    "mongoose": "^5.9.7",
+>>>>>>> Stashed changes
     "passport": "^0.4.1",
     "passport-local": "^1.0.0"
   },
