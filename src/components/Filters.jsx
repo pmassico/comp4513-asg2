@@ -6,11 +6,15 @@ class Filters extends React.Component {
     componentDidMount() {
         // show apply button when any checkbox is checked
         let radio = document.querySelectorAll("[type=radio]");
+        let search = document.querySelector('#searchBox');
         radio.forEach(r => {
             r.addEventListener('change', (e) => {
                 document.querySelector("#apply-filter").classList.remove("hidden");
             });
         })
+        search.addEventListener('change', (e) => {
+            document.querySelector("#apply-filter").classList.remove("hidden");
+        });
     }
 
     //this will reset all filters applied
