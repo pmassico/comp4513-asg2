@@ -4,6 +4,7 @@ const HttpError = require("../models/http-error");
 
 const Movie = require("../models/Movie");
 const MovieBrief = require("../models/Movie-Brief");
+const User = require("../models/User");
 
 const getAllMovies = async (req, res, next) => {
   try {
@@ -19,7 +20,7 @@ const getMovieById = async (req, res) => {
   let movie;
   try {
     movie = await Movie.find({ id: id });
-    res.json(movie[0]);
+    res.json(movie);
   } catch (error) {
     res.json(error);
   }
@@ -58,19 +59,11 @@ const getByYear = async (req, res) => {
     res.json(error);
   }
 
-  console.log(movies[0].release_date);
-  console.log(
-    movies[0].release_date.slice(0, 4) >= 2004 &&
-      movies[0].release_date.slice(0, 4) <= 2008
-  );
-
   const filteredMovies = movies.filter(
     movie =>
       movie.release_date.slice(0, 4) >= y1 &&
       movie.release_date.slice(0, 4) <= y2
   );
-
-  console.log(movies[0].release_date);
 
   if (filteredMovies) {
     res.json(filteredMovies);
@@ -93,22 +86,61 @@ const getByRating = async (req, res) => {
   }
 };
 
-const getFavourites = (req, res) => {
-  const favourites = { message: "all favourites" };
+const getFavourites = async (req, res) => {
+  const userId = req.body.id;
 
-  res.json(favourites);
+  let user;
+  try {
+    user = await User.find({ id: userId });
+  } catch (error) {
+    res.json(error);
+  }
+
+  if (user) {
+    res.json(user.favourites);
+  } else {
+    res.json({ message: "user could not be found" });
+  }
 };
 
-const addFavourite = (req, res) => {
-  // const {favourite} = req.body;
+const addFavourite = async (req, res) => {
+  const userId = req.body.id;
+  const favourite = req.body.favourite;
 
-  res.json({ message: "favourite added" });
+  let user;
+  try {
+    user = await User.find({ id: userId });
+  } catch (error) {
+    res.json(error);
+  }
+
+  if (user) {
+    await user.favorites.push(favourite);
+    await user.save();
+    res.json(user.favourites);
+  } else {
+    res.json({ message: "Could not add favourite" });
+  }
 };
 
-const removeFavourite = (req, res) => {
-  // const {favourite} = req.body;
+const removeFavourite = async (req, res) => {
+  const userId = req.body.id;
+  const favourite = req.body.favourite;
 
-  res.json({ message: "favourite deleted" });
+  let user;
+  try {
+    user = await User.find({ id: userId });
+  } catch (error) {
+    res.json(error);
+  }
+
+  if (user) {
+    user.favorites = user.favorites.filter(fav => favourite.id != fav.id);
+    await user.save();
+    res.json(user.favourites);
+  } else {
+    res.json({ message: "user could not be found" });
+  }
 };
 
 module.exports = {
