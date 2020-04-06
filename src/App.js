@@ -21,7 +21,7 @@ class App extends React.Component {
 
         if(moviesLocalStorage == null){
             try {
-                const url = "https://www.randyconnolly.com/funwebdev/3rd/api/movie/movies-brief.php?id=ALL";
+                const url = /*"https://www.randyconnolly.com/funwebdev/3rd/api/movie/movies-brief.php?id=ALL";*/ "http://localhost:5000/api/brief/";
                 const response = await fetch(url);
                 const jsonData = await response.json();
                 //https://www.c-sharpcorner.com/UploadFile/fc34aa/sort-json-object-array-based-on-a-key-attribute-in-javascrip/
@@ -55,9 +55,10 @@ class App extends React.Component {
     //get the details of a specific requested movie (requires new fetch)
      showMovieDetails = (movie) => {
         this.setState({ currentMovie: movie });
-        const url = `https://www.randyconnolly.com/funwebdev/3rd/api/movie/movies.php?id=${movie.id}`;
+        const url = `https://www.randyconnolly.com/funwebdev/3rd/api/movie/movies.php?id=${movie.id}`; /*`http://localhost:5000/api/movies/${movie.id}`*/
 
         const request = async () => {
+            console.log(url);
             const response = await fetch(url);
             const json = await response.json();
             this.setState( {singleMovieDetails: json, dataDetailsLoaded: true } );
