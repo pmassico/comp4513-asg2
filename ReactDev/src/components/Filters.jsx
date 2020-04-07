@@ -25,7 +25,29 @@ class Filters extends React.Component {
             s.addEventListener('click', (e) => {
                 document.querySelector("#clear-filter").classList.remove("hidden");
             });
-        })
+        });
+
+        // let bSlider = document.querySelector("#belowSlider");
+        // bSlider.addEventListener('input', (e) => {
+        //     document.querySelector("#below-value").textContent = bSlider.value;
+        // });
+
+        let sliders = document.querySelectorAll("[type=range]");
+        let values = document.querySelectorAll(".slider-value p");
+        let valueDiv = document.querySelectorAll(".slider-value");
+
+        sliders.forEach((s, index) => {
+            s.addEventListener('input', (e) => {
+                // show bubble
+                valueDiv[index].classList.remove("hidden");
+                values[index].textContent = s.value;
+            });
+            s.addEventListener('blur', (e) => {
+                valueDiv[index].classList.toggle("hidden");
+            });
+        });
+
+
     }
 
     //this will reset all filters applied
@@ -127,6 +149,7 @@ class Filters extends React.Component {
                                                         after
                                                     </label>
                                                     <input id="afterRadioText" className="input" type="number"/>
+
                                                 </li>
                                                 <li>
                                                     <label className="radio">
@@ -150,27 +173,23 @@ class Filters extends React.Component {
                                                         <input id="belowRadio" type="radio" name="answer"/>
                                                         below
                                                     </label>
-                                                    <div><input id="belowSlider" className="slider is-fullwidth" step="1" min="0" max="10" type="range" onChange={this.handleChange}/></div>
-                                                    <div>{this.state.belowSlider}</div>
+                                                    <div><div className="slider-value hidden" id=""><p>{this.state.belowSlider}</p></div><input id="belowSlider" className="slider is-fullwidth" step="1" min="0" max="10" type="range" onChange={this.handleChange}/></div>
                                                 </li>
                                                 <li>
                                                     <label className="radio">
                                                         <input id="aboveRadio" type="radio" name="answer"/>
                                                         above
                                                     </label>
-                                                    <div><input id="aboveSlider" className="slider is-fullwidth" step="1" min="0" max="10" type="range" onChange={this.handleChange}/></div>
-                                                    <div>{this.state.aboveSlider}</div>
+                                                    <div><div className="slider-value hidden" id="above-value"><p>{this.state.aboveSlider}</p></div><input id="aboveSlider" className="slider is-fullwidth" step="1" min="0" max="10" type="range" onChange={this.handleChange}/></div>
                                                 </li>
                                                 <li>
                                                     <label className="radio">
                                                         <input id="betweenRadioRatings" type="radio" name="answer"/>
                                                         between
                                                     </label>
-                                                    <div><input id="betweenSliderStart" className="slider is-fullwidth" step="1" min="0" max="10" type="range" onChange={this.handleChange}/></div>
-                                                    <div>{this.state.betweenSliderStart}</div>
+                                                    <div><div className="slider-value hidden" id="lower-value"><p>{this.state.betweenSliderStart}</p></div><input id="betweenSliderStart" className="slider is-fullwidth" step="1" min="0" max="10" type="range" onChange={this.handleChange}/></div>
                                                     and
-                                                    <div><input id="betweenSliderEnd" className="slider is-fullwidth" step="1" min="0" max="10" type="range" onChange={this.handleChange}/></div>
-                                                    <div>{this.state.betweenSliderEnd}</div>
+                                                    <div><div className="slider-value hidden" id="upper-value"><p>{this.state.betweenSliderEnd}</p></div><input id="betweenSliderEnd" className="slider is-fullwidth" step="1" min="0" max="10" type="range" onChange={this.handleChange}/></div>
                                                 </li>
                                             </ul>
                                         </div>
