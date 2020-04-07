@@ -1,0 +1,9 @@
+{
+  "name": "assignment-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./server/server.js",
+  "scripts": {
+    "start": "cd ./server && npm install && cd ../ReactDev && npm install && cd ../ && node ./server/server.js " 
+  }
+}
