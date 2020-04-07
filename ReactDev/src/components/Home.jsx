@@ -10,7 +10,6 @@ class Home extends React.Component {
 
     render() {
         return (
-
             <div className="box"
                 style = {{ backgroundImage: `url(${imgUrl})`,
                             'min-height': '800px',
