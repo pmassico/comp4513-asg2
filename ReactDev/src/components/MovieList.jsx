@@ -1,6 +1,7 @@
 import React from "react";
 import SingleMovie from './SingleMovie.jsx';
 import './MovieList.css';
+import CSSTransition from "react-transition-group/cjs/CSSTransition";
 
 //This component creates a movie list table that houses single movies
 class MovieList extends React.Component {
@@ -19,9 +20,21 @@ class MovieList extends React.Component {
                     {/*        </tr>*/}
                     {/*    </thead>*/}
                         <div className="movielist-container">
-                            { this.props.movies.map( (m) => <SingleMovie movie={m} key={m.id} showMovieDetails={this.props.showMovieDetails} addToFavs={this.props.addToFavs} /> )}
-                        </div>
-                    {/*</table>*/}
+
+                            { this.props.movies.map( (m) =>
+                                <CSSTransition
+                                    in={true}
+                                    appear={true}
+                                    timeout={2000}
+                                    classNames="cascade">
+                                    <>
+                                        <SingleMovie movie={m} key={m.id} showMovieDetails={this.props.showMovieDetails} addToFavs={this.props.addToFavs} />
+                                    </>
+                                </CSSTransition>
+                            )
+                            }
+
+                            </div>
                 </div>
             );
         } else

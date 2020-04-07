@@ -1,6 +1,12 @@
-#castDetails {
-    /*overflow: scroll;*/
-    /*height: 800px;*/
+.details-appear {
+    opacity: 0.01;
+    transform: translate(0, 50px);
+}
+
+.details-appear.details-appear-active {
+    opacity: 1;
+    transform: translate(0, 0);
+    transition: all 200ms linear;
 }
 
 #main-details {

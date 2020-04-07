@@ -5,6 +5,7 @@ import './MovieDetails.css';
 import CastCrewTabs from './CastCrewTabs.jsx';
 import SingleMovieImage from './SingleMovieImage.jsx';
 import AverageRating from './AverageRating.jsx';
+import CSSTransition from "react-transition-group/cjs/CSSTransition";
 
 //This component is the movie details plus the cast and crew component
 class MovieDetails extends React.Component {
@@ -68,27 +69,39 @@ class MovieDetails extends React.Component {
                                 </div>
                             </div>
                             <div className="tile columns">
-                                <div className="tile is-child column box" id="details-overview-div">
-                                    <div className="title is-5">Overview</div>
-                                    <ul className="list">
-                                        <li className="list-item"><p>{this.props.movie.details.overview}</p></li>
-                                    </ul>
-                                </div>
-                                <div className="tile is-child column box" id="details-info-div">
-                                    <div className="title is-5">Info</div>
-                                    <ul className="list">
-                                        <li className="list-item"><p>Revenue: ${this.formatMoney(this.props.movie.revenue)}</p></li>
-                                        <li className="list-item">{this.props.movie.production.countries != null ? this.props.movie.production.countries.map ( (m) => <p>{m.name}</p> ) : <p>Movie is missing country data.</p>}</li>
-                                        <li className="list-item"><p>View on: <a href={imdb} target="_blank" rel="noopener noreferrer">imdb</a> / <a href={moviedb} target="_blank" rel="noopener noreferrer">tmdb</a></p></li>
-                                        <li className="list-item"><p>Keywords: </p>{this.props.movie.details.keywords != null ? this.props.movie.details.keywords.map ( (m) => <span className="tag">{m.name}</span> ) : <p className="list-item">Movie is missing keywords data.</p>}</li>
-                                    </ul>
-                                </div>
+                                <CSSTransition
+                                    in={true}
+                                    appear={true}
+                                    timeout={200}
+                                    classNames="details"
+                                >
+                                    <div className="tile is-child column box" id="details-overview-div">
+                                        <div className="title is-5">Overview</div>
+                                        <ul className="list">
+                                            <li className="list-item"><p>{this.props.movie.details.overview}</p></li>
+                                        </ul>
+                                    </div>
+                                </CSSTransition>
+                                <CSSTransition
+                                    in={true}
+                                    appear={true}
+                                    timeout={200}
+                                    classNames="details"
+                                >
+                                    <div className="tile is-child column box" id="details-info-div">
+                                        <div className="title is-5">Info</div>
+                                        <ul className="list">
+                                            <li className="list-item"><p>Revenue: ${this.formatMoney(this.props.movie.revenue)}</p></li>
+                                            <li className="list-item">{this.props.movie.production.countries != null ? this.props.movie.production.countries.map ( (m) => <p>{m.name}</p> ) : <p>Movie is missing country data.</p>}</li>
+                                            <li className="list-item"><p>View on: <a href={imdb} target="_blank" rel="noopener noreferrer">imdb</a> / <a href={moviedb} target="_blank" rel="noopener noreferrer">tmdb</a></p></li>
+                                            <li className="list-item"><p>Keywords: </p>{this.props.movie.details.keywords != null ? this.props.movie.details.keywords.map ( (m) => <span className="tag">{m.name}</span> ) : <p className="list-item">Movie is missing keywords data.</p>}</li>
+                                        </ul>
+                                    </div>
+                                </CSSTransition>
                             </div>
                         </div>
                     ) : (
-                        <div id="loader">
-                            <img alt="content is loading" src={load} />
-                        </div>
+                        <div className="spin"></div>
                     )}
                 </div>
             </div>

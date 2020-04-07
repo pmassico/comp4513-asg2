@@ -1,5 +1,6 @@
 import React from "react";
 import './Filters.css';
+import CSSTransition from "react-transition-group/cjs/CSSTransition";
 
 //This component has all the possible filters for the movie list
 class Filters extends React.Component {
@@ -127,7 +128,13 @@ class Filters extends React.Component {
             <div>
                 <div>
                     <ul className="filter-dropdown">
-                        <li>
+                        <CSSTransition
+                            in={true}
+                            appear={true}
+                            timeout={250}
+                            classNames="fade"
+                        >
+                            <li>
                             <label htmlFor="filter" id="filter-label">filter</label>
                             <input type="checkbox" id="filter"/>
                                 <ul className="filters-level-2">
@@ -196,7 +203,14 @@ class Filters extends React.Component {
                                     </li>
                                 </ul>
                         </li>
-                        <li>
+                        </CSSTransition>
+                        <CSSTransition
+                            in={true}
+                            appear={true}
+                            timeout={250}
+                            classNames="fade"
+                        >
+                            <li>
                             <label htmlFor="sort" id="sort-label">sort</label>
                             <input type="checkbox" id="sort"/>
                                 <ul className="filters-level-2">
@@ -205,7 +219,14 @@ class Filters extends React.Component {
                                     <li id="sort-release" class="clickableSorts" onClick={()=> this.props.sortList("release_date")}>release date</li>
                                 </ul>
                         </li>
-                        <li>
+                        </CSSTransition>
+                        <CSSTransition
+                            in={true}
+                            appear={true}
+                            timeout={250}
+                            classNames="fade"
+                        >
+                            <li>
                             <label htmlFor="search" id="search-label">search</label>
                             <input type="checkbox" id="search"/>
                             <ul>
@@ -216,7 +237,7 @@ class Filters extends React.Component {
                                 </li>
                             </ul>
                         </li>
-
+                        </CSSTransition>
                     </ul>
 
                 </div>
