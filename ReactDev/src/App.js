@@ -240,7 +240,7 @@ class App extends React.Component {
                                 resetFilters={this.resetFilters}
                             />
                 }
-            />
+            />    
             <Route path='/home' exact 
                 render={ (props) =>
                             <Home

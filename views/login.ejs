@@ -1,6 +1,11 @@
-<div class="container">
+<div class="container" style="background-image: url('splash.jpg');
+min-height: 800px;
+background-size: cover;
+background-position: center center;
+background-repeat: no-repeat;">
    <h1 class="title">Login</h1>
    <div class="box">
+      <div className="background"></div>
       <form action="/login" method="post">
          <div class="field">
             <label class="label">Email</label>
@@ -16,7 +21,7 @@
             </div>
          </div>
          <div class="control">
-            <button type="submit" class="button is-link">Login Locally</button>
+            <button type="submit" class="button is-link">Sign In</button>
          </div>
          <%
             if (message) { %>
