@@ -9,6 +9,16 @@
     transition: all 200ms linear;
 }
 
+#details-overview-div {
+    padding-left: 2em;
+    transition-delay: 300ms;
+}
+
+#details-info-div {
+    padding-right: 2em;
+    transition-delay: 600ms;
+}
+
 #main-details {
     width: 100%;
 }
