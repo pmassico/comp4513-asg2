@@ -143,56 +143,83 @@ class App extends React.Component {
     //applies any filters that were requested by the user
     applyFilters = (searchBox, beforeRadio, afterRadio, betweenRadio, beforeRadioText, afterRadioText, betweenRadioTextStart, betweenRadioTextEnd, belowRadio, aboveRadio, betweenRadioRatings, belowSlider, aboveSlider, betweenSliderStart, betweenSliderEnd) => {
         
-        let updatedList = this.state.movies;
-        
-        if(searchBox != ""){
-            updatedList = updatedList.filter(function(updatedList){
-                let filterBy = updatedList.title;
-                return filterBy.toString().toLowerCase().search(
-                searchBox.toLowerCase()) !== -1;
-            });
-        }
         if(beforeRadioText !== "" && beforeRadio == true){
-            updatedList = updatedList.filter(function(updatedList){
-                let filterBy = updatedList.release_date;
-                filterBy = filterBy.substr(0, 4);
-                return filterBy < beforeRadioText;
-            });
+            const url = `https://damp-oasis-24034.herokuapp.com/api/find/year/0/${beforeRadioText}`;
+            const request = async () => {
+                console.log(url);
+                const response = await fetch(url);
+                const json = await response.json();
+                console.log(json);
+                this.setState( {movies: json, dataDetailsLoaded: true } );
+            }
+            request();
         }
         else if(afterRadioText !== "" && afterRadio === true){
-            updatedList = updatedList.filter(function(updatedList){
-                let filterBy = updatedList.release_date;
-                filterBy = filterBy.substr(0, 4);
-                return filterBy > afterRadioText;
-            }); 
+            const url = `https://damp-oasis-24034.herokuapp.com/api/find/year/${afterRadioText}/3000`;
+            const request = async () => {
+                console.log(url);
+                const response = await fetch(url);
+                const json = await response.json();
+                console.log(json);
+                this.setState( {movies: json, dataDetailsLoaded: true } );
+            }
+            request();
         }
         else if(betweenRadioTextStart !== "" && betweenRadioTextEnd != "" && betweenRadio == true){
-            updatedList = updatedList.filter(function(updatedList){
-                let filterBy = updatedList.release_date;
-                filterBy = filterBy.substr(0, 4);
-                return filterBy > betweenRadioTextStart && filterBy < betweenRadioTextEnd;
-            }); 
+            const url = `https://damp-oasis-24034.herokuapp.com/api/find/year/${afterRadioText}/${beforeRadioText}`;
+            const request = async () => {
+                console.log(url);
+                const response = await fetch(url);
+                const json = await response.json();
+                console.log(json);
+                this.setState( {movies: json, dataDetailsLoaded: true } );
+            }
+            request();
         }
-        if(belowSlider !== "" && belowRadio == true){
-            updatedList = updatedList.filter(function(updatedList){
-                let filterBy = updatedList.ratings.average;
-                return filterBy < belowSlider;
-            });
+        else if(belowSlider !== "" && belowRadio == true){
+            const url = `https://damp-oasis-24034.herokuapp.com/api/find/rating/0/${belowSlider}`;
+            const request = async () => {
+                console.log(url);
+                const response = await fetch(url);
+                const json = await response.json();
+                console.log(json);
+                this.setState( {movies: json, dataDetailsLoaded: true } );
+            }
+            request();
         }
         else if(aboveSlider !== "" && aboveRadio == true){
-            updatedList = updatedList.filter(function(updatedList){
-                let filterBy = updatedList.ratings.average;
-                return filterBy > aboveSlider;
-            });
+            const url = `https://damp-oasis-24034.herokuapp.com/api/find/rating/${aboveSlider}/11`;
+            const request = async () => {
+                console.log(url);
+                const response = await fetch(url);
+                const json = await response.json();
+                console.log(json);
+                this.setState( {movies: json, dataDetailsLoaded: true } );
+            }
+            request();
         }
         else if(betweenSliderStart !== "" && betweenSliderEnd != "" && betweenRadioRatings == true){
-            updatedList = updatedList.filter(function(updatedList){
-                let filterBy = updatedList.ratings.average;
-                return filterBy > betweenSliderStart && filterBy < betweenSliderEnd;
-            });
+            const url = `https://damp-oasis-24034.herokuapp.com/api/find/rating/${betweenSliderStart}/${betweenSliderEnd}`;
+            const request = async () => {
+                console.log(url);
+                const response = await fetch(url);
+                const json = await response.json();
+                console.log(json);
+                this.setState( {movies: json, dataDetailsLoaded: true } );
+            }
+            request();
         }
-        
-        this.setState( {movies: updatedList} );
+        else if(searchBox != ""){
+            const url = `https://damp-oasis-24034.herokuapp.com/api/find/title/${searchBox.toLowerCase()}`;
+            const request = async () => {
+                console.log(url);
+                const response = await fetch(url);
+                const json = await response.json();
+                console.log(json);
+                this.setState( {movies: json, dataDetailsLoaded: true } );
+            }
+            request();
+        }
     }
 
     //adds a movie to favorites
