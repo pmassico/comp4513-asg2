@@ -21,7 +21,7 @@ const Modal = ({ children, closeModal, modalState, title }) => {
                     </div>
                 </section>
                 <footer className="modal-card-foot">
-                    <a className="button" onClick={closeModal}>Cancel</a>
+                    <a className="button" onClick={closeModal}>Close</a>
                 </footer>
             </div>
         </div>
@@ -86,11 +86,11 @@ class Profile extends React.Component {
                     >
                     <div>
                         <img src={this.state.userData.picture && this.state.userData.picture.large} alt={this.state.userData.details && this.state.userData.details.firstname}></img>
-                        <div>{this.state.userData.details && this.state.userData.details.firstname}</div>
-                        <div>{this.state.userData.details && this.state.userData.details.lastname}</div>
-                        <div>{this.state.userData.details && this.state.userData.details.city}</div>
-                        <div>{this.state.userData.details && this.state.userData.details.country}</div>
-                        <div>{this.state.userData.membership && this.state.userData.membership.date_joined}</div>
+                        <div><b>{this.state.userData.details && this.state.userData.details.firstname}</b></div>
+                        <div><b>{this.state.userData.details && this.state.userData.details.lastname}</b></div>
+                        <div><b>{this.state.userData.details && this.state.userData.details.city}</b></div>
+                        <div><b>{this.state.userData.details && this.state.userData.details.country}</b></div>
+                        <div><b>{this.state.userData.membership && this.state.userData.membership.date_joined}</b></div>
                     </div>
                 </Modal>
             </div>
