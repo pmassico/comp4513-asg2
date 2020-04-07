@@ -128,14 +128,16 @@ class App extends React.Component {
 
     //filter specifically for the home page search box, this function was base off: https://codepen.io/mtclmn/pen/QyPVJp
     searchFilter = (searchBox) => {
-        let updatedList = this.state.movies;
-        updatedList = updatedList.filter(function(updatedList){
-            let filterBy = updatedList.title;
-            return filterBy.toString().toLowerCase().search(
-            searchBox.toLowerCase()) !== -1;
-        });
-        
-        this.setState( {movies: updatedList} );
+        const url = `https://damp-oasis-24034.herokuapp.com/api/find/title/${searchBox.toLowerCase()}`;
+
+        const request = async () => {
+            console.log(url);
+            const response = await fetch(url);
+            const json = await response.json();
+            console.log(json);
+            this.setState( {movies: json, dataDetailsLoaded: true } );
+        }
+        request();
     }
     
     //applies any filters that were requested by the user

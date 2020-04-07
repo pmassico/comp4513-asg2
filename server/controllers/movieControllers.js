@@ -40,7 +40,7 @@ const getBySubstring = async (req, res) => {
   const substring = req.params.substring;
   let movies;
   try {
-    movies = await Movie.find({ title: { $regex: substring, $options: "i" } });
+    movies = await MovieBrief.find({ title: { $regex: substring, $options: "i" } });
     res.json(movies);
   } catch (error) {
     res.json(error);
@@ -54,7 +54,7 @@ const getByYear = async (req, res) => {
 
   let movies;
   try {
-    movies = await Movie.find();
+    movies = await MovieBrief.find();
   } catch (error) {
     res.json(error);
   }
@@ -79,7 +79,7 @@ const getByRating = async (req, res) => {
   let movies;
 
   try {
-    movies = await Movie.find({ "ratings.average": { $gte: r1, $lte: r2 } });
+    movies = await MovieBrief.find({ "ratings.average": { $gte: r1, $lte: r2 } });
     res.json(movies);
   } catch (error) {
     res.json(error);
