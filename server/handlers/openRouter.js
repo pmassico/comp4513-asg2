@@ -3,13 +3,15 @@ const router = express.Router();
 const passport = require('passport');
 const helper = require('./helpers.js');
 const fs = require('fs');
+const localStorage = require('localStorage')
+const cookie = require('cookie');
 
 // Welcome Page
 router.get('/home',  helper.ensureAuthenticated, (req, resp) => {
    let reactHome =  '/' ;
-   fs.writeFile('user.json', req.user, function (err) {
+   fs.writeFile('user.json', JSON.stringify(req.user), function (err) {
       if (err) throw err;
-      console.log('Saved user.json!');
+      console.log('Saved user.json');
    });
    resp.redirect(reactHome);
 });
