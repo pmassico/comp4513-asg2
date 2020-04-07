@@ -8,6 +8,10 @@
     height: 800px;
 }
 
+.clickableSorts {
+    cursor: pointer;
+}
+
 .input {
     margin: 2px;
 }
@@ -80,4 +84,8 @@ input:not(:checked) + ul {
 
 .hidden {
     display: none;
+}
+
+.filter-dropdown {
+    padding-bottom: 0.8em;
 }

@@ -4,22 +4,30 @@ import './Filters.css';
 //This component has all the possible filters for the movie list
 class Filters extends React.Component {
     componentDidMount() {
-        // show apply button when any checkbox is checked
-        let radio = document.querySelectorAll("[type=radio]");
+        // show buttons when any checkbox is checked (filter/sort is applied)
+        let radio = document.querySelectorAll(".filters-level-3 [type=radio]");
         let search = document.querySelector('#searchBox');
+        let sorts = document.querySelectorAll(".clickableSorts");
         radio.forEach(r => {
             r.addEventListener('change', (e) => {
                 document.querySelector("#apply-filter").classList.remove("hidden");
             });
-        })
+        });
         search.addEventListener('change', (e) => {
             document.querySelector("#apply-filter").classList.remove("hidden");
         });
+        sorts.forEach(s => {
+            s.addEventListener('click', (e) => {
+                document.querySelector("#clear-filter").classList.remove("hidden");
+            });
+        })
     }
 
     //this will reset all filters applied
     clearAll = () => {
         this.props.resetFilters();
+        this.props.clearSort();
+
         document.querySelector("#searchBox").value = "";
 
         document.querySelector("#beforeRadio").checked = false;
@@ -61,20 +69,9 @@ class Filters extends React.Component {
         
         this.props.applyFilters(searchBox, beforeRadio, afterRadio, betweenRadio, beforeRadioText, afterRadioText, betweenRadioTextStart, betweenRadioTextEnd, belowRadio, aboveRadio, betweenRadioRatings, belowSlider, aboveSlider, betweenSliderStart, betweenSliderEnd);
 
-        this.addTags(searchBox, beforeRadio, afterRadio, betweenRadio, beforeRadioText, afterRadioText, betweenRadioTextStart, betweenRadioTextEnd, belowRadio, aboveRadio, betweenRadioRatings, belowSlider, aboveSlider, betweenSliderStart, betweenSliderEnd);
         document.querySelector("#clear-filter").classList.remove("hidden");
         document.querySelector("#apply-filter").classList.toggle("hidden");
         document.querySelector("input[type=checkbox]").checked = false;
-    };
-
-    // wait until filters are turned into routes
-    addTags = (...filters) => {
-        filters.forEach(f => {
-            if (f != null && f !== false && f !== true) {
-                // let tag = <div className="tag">{f}</div>;
-                // document.querySelector("#filter-buttons").appendChild(tag);
-            }
-        });
     };
 
     render() {
@@ -154,9 +151,9 @@ class Filters extends React.Component {
                             <label htmlFor="sort" id="sort-label">sort</label>
                             <input type="checkbox" id="sort"/>
                                 <ul className="filters-level-2">
-                                    <li>name</li>
-                                    <li>rating</li>
-                                    <li>release date</li>
+                                    <li id="sort-name" class="clickableSorts" onClick={()=> this.props.sortList("title")} >name</li>
+                                    <li id="sort-rating" class="clickableSorts" onClick={()=> this.props.sortList("ratings")}>rating</li>
+                                    <li id="sort-release" class="clickableSorts" onClick={()=> this.props.sortList("release_date")}>release date</li>
                                 </ul>
                         </li>
                         <li>

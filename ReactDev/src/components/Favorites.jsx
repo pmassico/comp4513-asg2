@@ -5,15 +5,23 @@ import './Favorites.css';
 //This component holds a set of favorites called by <FavoriteItem/>
 class Favorites extends React.Component {
     componentDidMount() {
-        // from
-        let dropdown = document.querySelector('.dropdown');
-        dropdown.addEventListener('click', function(event) {
-            event.stopPropagation();
-            dropdown.classList.toggle('is-active');
+        let favButton = document.querySelector('#fav-button');
+        let dropdown = document.querySelector('#fav-dropdown');
+        let arrow = document.querySelector("#fav-arrow");
+
+        favButton.addEventListener('click', (e) => {
+            if (dropdown.classList.contains("hidden")) {
+                dropdown.classList.remove("hidden");
+
+                arrow.classList.remove("fa-angle-down");
+                arrow.classList.toggle("fa-angle-up");
+            } else {
+                dropdown.classList.toggle("hidden");
+
+                arrow.classList.remove("fa-angle-up");
+                arrow.classList.toggle("fa-angle-down");
+            }
         });
-        document.addEventListener('click', (e) => {
-            //dropdown.classList.remove('is-active');
-        })
     }
 
     //hides the favorite list content
@@ -35,20 +43,18 @@ class Favorites extends React.Component {
     render() {
 
         return (
-            <div className="dropdown is-pulled-right">
-                <div className="dropdown-trigger">
-                    <button className="button" aria-haspopup="true" aria-controls="dropdown-menu">
+            <div className="is-pulled-right">
+                    <button className="button" id="fav-button">
                         <span>Favorites</span>
                         <span className="icon is-small">
-                            <i className="fas fa-angle-down" aria-hidden="true"/>
+                            <i className="fas fa-angle-down" id="fav-arrow"/>
                         </span>
                     </button>
-                </div>
-                <div className="dropdown-menu" id="dropdown-menu" role="menu">
-                    <div className="dropdown-content">
-                        <div className="dropdown-item"><p>Press ❤ to add a favourite!</p></div>
-                        <div className="dropdown-item hidden"><p>Press X to remove a favourite</p></div>
+                <div id="fav-dropdown" className="hidden">
+                    <div id="fav-content">
                         {this.props.movie && this.props.movie.map( (m) => <FavoriteItem movie={m.movie} key={m.movie.id} showMovieDetails={this.props.showMovieDetails} deleteFav={this.props.deleteFav} />)}
+
+
                         {}
                         {/*<div className="dropdown-item">*/}
                         {/*    <p>You can insert <strong>any type of content</strong> within the dropdown menu.</p>*/}

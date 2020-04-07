@@ -10,7 +10,7 @@ class FavoriteItem extends React.Component {
         this.props.showMovieDetails(this.props.movie);
     };
     
-    //deltes the favorite item if the x is clicked
+    //deletes the favorite item if the x is clicked
     handleDeleteClick = (e) => {
         e.preventDefault();
         this.props.deleteFav(this.props.movie.id);
@@ -19,12 +19,12 @@ class FavoriteItem extends React.Component {
     render() {
         const imgURL = `https://image.tmdb.org/t/p/w92${this.props.movie.poster}`;
         return (
-            <div className="dropdown-item">
+            <div>
                 <figure>
                     <Link to='/details'>
                         <img alt="favorite movie" src={imgURL} className="image" onClick={ this.handleViewClick } title={this.props.movie.title} alt={this.props.movie.title} />
                     </Link>
-                        <img src={deleteImg} className="delete" onClick={ this.handleDeleteClick } width="30px" height="30px"/>
+                    <img src={deleteImg} className="delete" onClick={ this.handleDeleteClick } width="30px" height="30px"/>
                 </figure>
             </div>
             );

@@ -30,7 +30,7 @@ class SingleMovie extends React.Component {
 
                 </div>
                 <footer className="card-footer">
-                    <p className="card-footer-item runtime" id="footer-runtime">{this.props.movie.runtime} min</p>
+                    <p className="card-footer-item runtime" id="footer-runtime">{this.props.movie.ratings.average} <i className='fas fa-star'/></p>
                     <p className="card-footer-item" id="footer-release">
                         {this.props.movie.release_date}
                     </p>

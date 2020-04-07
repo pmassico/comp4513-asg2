@@ -12,3 +12,7 @@
     border-color: black;
         /*#dbdbdb*/
 }
+
+header button {
+    margin-top: 7px;
+}

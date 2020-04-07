@@ -4,3 +4,21 @@
 .arrowPointer i {
     cursor: pointer;
 }
+
+.hidden {
+    display: none;
+}
+
+#fav-dropdown {
+    position:absolute;
+    top: 100px;
+    right: 20px;
+}
+
+#fav-content {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 100px);
+    overflow: scroll;
+}
+

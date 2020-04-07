@@ -29,12 +29,12 @@ class MovieBrowser extends React.Component {
             <div id="browse-container">
                 <div id="browse-header">
                     <div className="title is-3" id="browse-title">browse</div>
-                    <Filters applyFilters={this.props.applyFilters} resetFilters={this.props.resetFilters} hideFilters={this.hideFilters} showFilters={this.showFilters}/>
+                    <Filters applyFilters={this.props.applyFilters} resetFilters={this.props.resetFilters} hideFilters={this.hideFilters} showFilters={this.showFilters} sortList={this.props.sortList} clearSort={this.props.clearSort}/>
                 </div>
                 <div id="movieList">
                     {dataLoaded ? (
                         <div>
-                            <MovieList movies={this.props.movies} showMovieDetails={this.props.showMovieDetails} addToFavs={this.props.addToFavs} sortList={this.props.sortList}/>
+                            <MovieList movies={this.props.movies} showMovieDetails={this.props.showMovieDetails} addToFavs={this.props.addToFavs} />
                         </div>
                     ) : (
                         <div id="loader">

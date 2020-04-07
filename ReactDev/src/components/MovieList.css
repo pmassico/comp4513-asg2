@@ -4,16 +4,13 @@
 
 #movieList {
     overflow: scroll;
-    height: calc(100vh - 225px);
-}
-
-.clickableSorts {
-    cursor: pointer;
+    height: calc(100vh - 237px);
 }
 
 .movielist-container {
     display: flex;
     flex-wrap: wrap;
+    padding-right: 100px;
 }
 
 .single-movie {

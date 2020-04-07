@@ -3,7 +3,8 @@ import './App.css';
 import HeaderApp from './components/HeaderApp.jsx';
 import MovieBrowser from './components/MovieBrowser.jsx';
 import Favorites from './components/Favorites.jsx';
-import { Route } from 'react-router-dom';
+
+import Route from 'react-router-dom/Route.js';
 import Home from './components/Home.jsx';
 import MovieDetails from './components/MovieDetails.jsx';
 import CastDetails from './components/CastDetails.jsx';
@@ -19,9 +20,10 @@ class App extends React.Component {
     async componentDidMount() {
         let moviesLocalStorage = null;
 
-        if(moviesLocalStorage == null){
+        if(moviesLocalStorage == null) {
             try {
-                const url = /*"https://www.randyconnolly.com/funwebdev/3rd/api/movie/movies-brief.php?id=ALL";*/ "http://localhost:5000/api/brief/";
+                const url = "https://www.randyconnolly.com/funwebdev/3rd/api/movie/movies-brief.php?id=ALL";
+                // "http://localhost:5000/api/brief/";
                 const response = await fetch(url);
                 const jsonData = await response.json();
                 //https://www.c-sharpcorner.com/UploadFile/fc34aa/sort-json-object-array-based-on-a-key-attribute-in-javascrip/
@@ -55,7 +57,8 @@ class App extends React.Component {
     //get the details of a specific requested movie (requires new fetch)
      showMovieDetails = (movie) => {
         this.setState({ currentMovie: movie });
-        const url = /*`https://www.randyconnolly.com/funwebdev/3rd/api/movie/movies.php?id=${movie.id}`;*/ `http://localhost:5000/api/movies/${movie.id}`;
+        const url = `https://www.randyconnolly.com/funwebdev/3rd/api/movie/movies.php?id=${movie.id}`;
+        /*`http://localhost:5000/api/movies/${movie.id}`;*/
 
         const request = async () => {
             console.log(url);
@@ -211,7 +214,7 @@ class App extends React.Component {
             //3. add back to state
             this.setState({favs:data});
         }
-    }
+    };
 
     //deletes a movie from the favorites list
     deleteFav = (movieID) => {
