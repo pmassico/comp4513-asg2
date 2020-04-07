@@ -23,7 +23,7 @@ class Home extends React.Component {
                     <CSSTransition
                         in={true}
                         appear={true}
-                        timeout={500}
+                        timeout={300}
                         classNames="fade"
                     >
                         <div className="card" id="home-card">
