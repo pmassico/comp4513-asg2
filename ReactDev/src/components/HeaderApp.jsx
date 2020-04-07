@@ -1,6 +1,7 @@
 import React from 'react';
 import HeaderBar from './HeaderBar.jsx';
 import About from './About.jsx';
+import Profile from './Profile.jsx';
 import './Header.css';
 import Favorites from "./Favorites";
 
@@ -14,6 +15,7 @@ const HeaderApp = function (props) {
                 <a href="http://localhost:5000/logout">
                     <button className="button is-pulled-right">Logout</button>
                 </a>
+                <Profile showUserDetails={props.showUserDetails}/>
                 <About />
                 <Favorites movie={props.movie} showMovieDetails={props.showMovieDetails} deleteFav={props.deleteFav}/>
             </div>

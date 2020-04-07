@@ -16,7 +16,7 @@ require("./handlers/dataConnector.js").connect();
 const app = express();
 
 const movieRoutes = require("./routes/movieRoutes");
-// const userRoutes = require("./routes/userRoutes");
+const userRoutes = require("./routes/userRoutes");
 const briefRoutes = require("./routes/briefRoutes");
 const findRoutes = require("./routes/findRoutes");
 const favouriteRoutes = require("./routes/favouriteRoutes");
@@ -79,7 +79,7 @@ app.use((req, res, next) => {
 app.use("/api/movies", movieRoutes);
 app.use("/api/brief", briefRoutes);
 app.use("/api/find", findRoutes);
-// app.use('/api/login', userRoutes)
+app.use("/api/login/", userRoutes);
 app.use("/api/favourites", favouriteRoutes);
 
 /*

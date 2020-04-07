@@ -3,6 +3,11 @@ import './Filters.css';
 
 //This component has all the possible filters for the movie list
 class Filters extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { belowRadio: "", aboveRadio: "", betweenSliderStart: "", betweenSliderEnd: "" };
+    }
+
     componentDidMount() {
         // show buttons when any checkbox is checked (filter/sort is applied)
         let radio = document.querySelectorAll(".filters-level-3 [type=radio]");
@@ -67,6 +72,11 @@ class Filters extends React.Component {
         document.querySelector("#aboveSlider").value = document.querySelector("#aboveSlider").defaultValue;
         document.querySelector("#betweenSliderStart").value = document.querySelector("#betweenSliderStart").defaultValue;
         document.querySelector("#betweenSliderEnd").value = document.querySelector("#betweenSliderEnd").defaultValue;
+
+        document.querySelector("#clear-filter").classList.toggle("hidden");
+        document.querySelector("#apply-filter").classList.toggle("hidden");
+
+        this.setState = { belowRadio: "", aboveRadio: "", betweenSliderStart: "", betweenSliderEnd: "" };
     };
     
     //this will apply any selected filters
@@ -92,9 +102,25 @@ class Filters extends React.Component {
         this.props.applyFilters(searchBox, beforeRadio, afterRadio, betweenRadio, beforeRadioText, afterRadioText, betweenRadioTextStart, betweenRadioTextEnd, belowRadio, aboveRadio, betweenRadioRatings, belowSlider, aboveSlider, betweenSliderStart, betweenSliderEnd);
 
         document.querySelector("#clear-filter").classList.remove("hidden");
-        document.querySelector("#apply-filter").classList.toggle("hidden");
+        //document.querySelector("#apply-filter").classList.toggle("hidden");
         document.querySelector("input[type=checkbox]").checked = false;
     };
+
+    handleChange = (e) => {
+        let elements = this.state;
+
+            elements[e.target.id] = e.target.value;
+        
+        this.setState(elements)
+    }
+    handleSearchBox = (e) => {
+        document.querySelector("#beforeRadio").checked = false;
+        document.querySelector("#afterRadio").checked = false;
+        document.querySelector("#betweenRadio").checked = false;
+        document.querySelector("#belowRadio").checked = false;
+        document.querySelector("#aboveRadio").checked = false;
+        document.querySelector("#betweenRadioRatings").checked = false;
+    }
 
     render() {
         return (
@@ -147,23 +173,23 @@ class Filters extends React.Component {
                                                         <input id="belowRadio" type="radio" name="answer"/>
                                                         below
                                                     </label>
-                                                    <div><div className="slider-value hidden" id=""><p>5</p></div><input id="belowSlider" className="slider is-fullwidth" step="1" min="0" max="10" type="range"/></div>
+                                                    <div><div className="slider-value hidden" id=""><p>{this.state.belowSlider}</p></div><input id="belowSlider" className="slider is-fullwidth" step="1" min="0" max="10" type="range" onChange={this.handleChange}/></div>
                                                 </li>
                                                 <li>
                                                     <label className="radio">
                                                         <input id="aboveRadio" type="radio" name="answer"/>
                                                         above
                                                     </label>
-                                                    <div><div className="slider-value hidden" id="above-value"><p>5</p></div><input id="aboveSlider" className="slider is-fullwidth" step="1" min="0" max="10" type="range"/></div>
+                                                    <div><div className="slider-value hidden" id="above-value"><p>{this.state.aboveSlider}</p></div><input id="aboveSlider" className="slider is-fullwidth" step="1" min="0" max="10" type="range" onChange={this.handleChange}/></div>
                                                 </li>
                                                 <li>
                                                     <label className="radio">
                                                         <input id="betweenRadioRatings" type="radio" name="answer"/>
                                                         between
                                                     </label>
-                                                    <div><div className="slider-value hidden" id="lower-value"><p>5</p></div><input id="betweenSliderStart" className="slider is-fullwidth" step="1" min="0" max="10" type="range"/></div>
+                                                    <div><div className="slider-value hidden" id="lower-value"><p>{this.state.betweenSliderStart}</p></div><input id="betweenSliderStart" className="slider is-fullwidth" step="1" min="0" max="10" type="range" onChange={this.handleChange}/></div>
                                                     and
-                                                    <div><div className="slider-value hidden" id="upper-value"><p>5</p></div><input id="betweenSliderEnd" className="slider is-fullwidth" step="1" min="0" max="10" type="range"/></div>
+                                                    <div><div className="slider-value hidden" id="upper-value"><p>{this.state.betweenSliderEnd}</p></div><input id="betweenSliderEnd" className="slider is-fullwidth" step="1" min="0" max="10" type="range" onChange={this.handleChange}/></div>
                                                 </li>
                                             </ul>
                                         </div>
@@ -185,7 +211,7 @@ class Filters extends React.Component {
                             <ul>
                                 <li>
                                     <div className="control">
-                                        <input id="searchBox" className="input" type="text" placeholder="movie name"/>
+                                        <input id="searchBox" className="input" type="text" placeholder="movie name" onSelect={this.handleSearchBox}/>
                                     </div>
                                 </li>
                             </ul>
