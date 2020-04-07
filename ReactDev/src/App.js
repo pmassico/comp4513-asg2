@@ -53,7 +53,7 @@ class App extends React.Component {
             }
         }
     }
-    
+
     //get the details of a specific requested movie (requires new fetch)
      showMovieDetails = (movie) => {
         this.setState({ currentMovie: movie });
@@ -296,7 +296,7 @@ class App extends React.Component {
             <Route path='/details/cast' exact
             render={ (props) =>
                 <React.Fragment>
-                <HeaderApp movie={this.state.favs} showMovieDetails={this.showMovieDetails} deleteFav={this.deleteFav} />
+                <HeaderApp movie={this.state.favs} showMovieDetails={this.showMovieDetails} deleteFav={this.deleteFav}/>
                 <CastDetails
                     movie={this.state.singleMovieDetails} 
                     cast={this.state.singleCastDetails} 
