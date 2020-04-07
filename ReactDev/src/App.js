@@ -172,7 +172,7 @@ class App extends React.Component {
         }
         else if(betweenRadioTextStart !== "" && betweenRadioTextEnd != "" && betweenRadio == true){
             console.log("Getting Between years: "+ afterRadioText + " & " + beforeRadioText);
-            const url = `https://damp-oasis-24034.herokuapp.com/api/find/year/${afterRadioText}/${beforeRadioText}`;
+            const url = `https://damp-oasis-24034.herokuapp.com/api/find/year/${betweenRadioTextStart}/${betweenRadioTextEnd}`;
             const request = async () => {
                
                 const response = await fetch(url);

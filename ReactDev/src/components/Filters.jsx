@@ -100,6 +100,7 @@ class Filters extends React.Component {
         let betweenSliderStart = document.querySelector("#betweenSliderStart").value;
         let betweenSliderEnd = document.querySelector("#betweenSliderEnd").value;
         
+
         this.props.applyFilters(searchBox, beforeRadio, afterRadio, betweenRadio, beforeRadioText, afterRadioText, betweenRadioTextStart, betweenRadioTextEnd, belowRadio, aboveRadio, betweenRadioRatings, belowSlider, aboveSlider, betweenSliderStart, betweenSliderEnd);
 
         document.querySelector("#clear-filter").classList.remove("hidden");
