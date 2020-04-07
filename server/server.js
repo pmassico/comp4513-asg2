@@ -82,10 +82,11 @@ app.use("/api/find", findRoutes);
 // app.use('/api/login', userRoutes)
 app.use("/api/favourites", favouriteRoutes);
 
+/*
 // error handling for unsupported routes
 app.use((req, res, next) => {
   return next(new HttpError("Could not find this route.", 404));
-});
+});*/
 
 // Use express to listen to port
 let port = process.env.PORT || 5000;

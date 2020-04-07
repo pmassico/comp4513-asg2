@@ -11,6 +11,9 @@ const HeaderApp = function (props) {
         <header className="hero medium">
             <div className="hero-body">
                 <HeaderBar />
+                <a href="http://localhost:5000/logout">
+                    <button className="button is-pulled-right">Logout</button>
+                </a>
                 <About />
                 <Favorites movie={props.movie} showMovieDetails={props.showMovieDetails} deleteFav={props.deleteFav}/>
             </div>

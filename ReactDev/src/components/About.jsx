@@ -66,12 +66,13 @@ class About extends React.Component {
                     title="About"
                     >
                     <div>
-                        <div>Website Author: Grant Donst</div>
-                        <div><a href="https://github.com/gdonst/ReactMovieWebsite" target="_blank" rel="noopener noreferrer">Github Repository</a></div>
+                        <div>Website Authors: Grant Donst, Quinn Cooper, Phil Massicotte, Karan Mann</div>
+                        <div><a href="https://github.com/gdonst/Web3Assign2" target="_blank" rel="noopener noreferrer">Github Repository</a></div>
                         <br/>
                         <div>Technology/Resources Used: </div>
                         <ul>
                             <li>React</li>
+                            <li>Node</li>
                             <li>Cdnjs for Web Related Libraries</li>
                             <li>Bulma v0.8.0 CSS Framework</li>
                             <li>Brackets</li>
