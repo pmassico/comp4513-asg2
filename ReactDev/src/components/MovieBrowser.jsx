@@ -3,6 +3,7 @@ import MovieList from './MovieList.jsx';
 import Filters from './Filters.jsx';
 import load from '../photos/ajax-loader.gif';
 import './MovieBrowser.css';
+import CSSTransition from "react-transition-group/cjs/CSSTransition";
 
 //This component is the main browser page housing the filters and movie list
 class MovieBrowser extends React.Component {
@@ -28,7 +29,14 @@ class MovieBrowser extends React.Component {
         return (
             <div id="browse-container">
                 <div id="browse-header">
-                    <div className="title is-3" id="browse-title">browse</div>
+                    <CSSTransition
+                        in={true}
+                        appear={true}
+                        timeout={200}
+                        classNames="fade"
+                    >
+                        <div className="title is-3" id="browse-title">browse</div>
+                    </CSSTransition>
                     <Filters applyFilters={this.props.applyFilters} resetFilters={this.props.resetFilters} hideFilters={this.hideFilters} showFilters={this.showFilters} sortList={this.props.sortList} clearSort={this.props.clearSort}/>
                 </div>
                 <div id="movieList">
@@ -37,9 +45,7 @@ class MovieBrowser extends React.Component {
                             <MovieList movies={this.props.movies} showMovieDetails={this.props.showMovieDetails} addToFavs={this.props.addToFavs} />
                         </div>
                     ) : (
-                        <div id="loader">
-                            <img alt="content loading" src={load} />
-                        </div>
+                        <div className="spin"></div>
                     )}
                 </div>
             </div>

@@ -2,13 +2,13 @@
 
 .fade-appear {
     opacity: 0.01;
-    transform: translate(0, 20px);
+    transform: translate(0, 30px);
 }
 
 .fade-appear.fade-appear-active {
     opacity: 1;
     transform: translate(0, 0);
-    transition: all 500ms ease-in;
+    transition: all 300ms linear;
 }
 
 /* page content -- card and box */
