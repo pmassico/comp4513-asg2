@@ -12,7 +12,7 @@ const HeaderApp = function (props) {
         <header className="hero medium">
             <div className="hero-body">
                 <HeaderBar />
-                <a href="http://localhost:5000/logout">
+                <a href="https://damp-oasis-24034.herokuapp.com/logout">
                     <button className="button is-pulled-right">Logout</button>
                 </a>
                 <Profile showUserDetails={props.showUserDetails}/>
