@@ -72,6 +72,14 @@ input:not(:checked) + ul {
 
 .filters-level-3 li {
     padding-bottom: 10px;
+    display: flex;
+}
+
+.filters-level-3 ul {
+}
+
+.filters-level-3 label {
+    padding-right: 1em;
 }
 
 #apply-filter, #clear-filter {
@@ -88,4 +96,13 @@ input:not(:checked) + ul {
 
 .filter-dropdown {
     padding-bottom: 0.8em;
+}
+
+.slider-value {
+    margin-top: -26px;
+    background-color: white;
+    border: 1px solid black;
+    width: 25px;
+    text-align: center;
+    color: black;
 }
