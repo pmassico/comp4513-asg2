@@ -87,44 +87,42 @@ const getByRating = async (req, res) => {
 };
 
 const getFavourites = async (req, res) => {
-  const userId = req.body.id;
-
+  const userId = req.params.id;
+  console.log("Fetching Favorites...")
+  console.log(userId)
   let user;
   try {
     user = await User.find({ id: userId });
   } catch (error) {
     res.json(error);
   }
-
   if (user) {
-    res.json(user.favourites);
+    res.json(user[0].favorites);
   } else {
     res.json({ message: "user could not be found" });
   }
 };
 
 const addFavourite = async (req, res) => {
-  const userId = req.body.id;
+  const userId = req.body.userData.id;
   const favourite = req.body.favourite;
-
   let user;
   try {
     user = await User.find({ id: userId });
   } catch (error) {
     res.json(error);
   }
-
   if (user) {
-    await user.favorites.push(favourite);
-    await user.save();
-    res.json(user.favourites);
+    user[0].favorites.push(favourite);
+    await user[0].save();
+    res.json(user[0].favorites);
   } else {
     res.json({ message: "Could not add favourite" });
   }
 };
 
 const removeFavourite = async (req, res) => {
-  const userId = req.body.id;
+  const userId = req.body.userData.id;
   const favourite = req.body.favourite;
 
   let user;
@@ -135,9 +133,9 @@ const removeFavourite = async (req, res) => {
   }
 
   if (user) {
-    user.favorites = user.favorites.filter(fav => favourite.id != fav.id);
-    await user.save();
-    res.json(user.favourites);
+    user[0].favorites = user[0].favorites.filter(fav => favourite != fav.id);
+    await user[0].save();
+    res.json(user[0].favorites);
   } else {
     res.json({ message: "user could not be found" });
   }

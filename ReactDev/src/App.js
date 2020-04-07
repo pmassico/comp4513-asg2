@@ -13,7 +13,7 @@ import CastDetails from './components/CastDetails.jsx';
 class App extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { movies: [], favs: [], currentMovie: [], singleMovieDetails: [], currentCast: [], singleCastDetails: [], movies_unfiltered: [], dataLoaded: false, dataDetailsLoaded: false, castDetailsLoaded: false, homeSearchValue: "" };
+        this.state = { movies: [], favs: [], currentMovie: [], singleMovieDetails: [], currentCast: [], singleCastDetails: [], movies_unfiltered: [], dataLoaded: false, dataDetailsLoaded: false, castDetailsLoaded: false, homeSearchValue: "", userData: {} };
     }
 
     //get initial data and save to local storage, or get from local storage if it already exists
@@ -52,19 +52,24 @@ class App extends React.Component {
                 console.log(err);
             }
         }
+        const initialize = async () => {
+            await this.showUserDetails();
+            await this.fetchFav();
+        }
+        initialize();
     }
 
     //get the details of a specific requested movie (requires new fetch)
-     showMovieDetails = (movie) => {
+     showMovieDetails = async (movie) => {
         this.setState({ currentMovie: movie });
         const url = //`https://www.randyconnolly.com/funwebdev/3rd/api/movie/movies.php?id=${movie.id}`;
         `https://damp-oasis-24034.herokuapp.com/api/movies/${movie.id}`;
 
         const request = async () => {
-            console.log(url);
+          
             const response = await fetch(url);
             const json = await response.json();
-            console.log(json);
+          
             this.setState( {singleMovieDetails: json, dataDetailsLoaded: true } );
         };
 
@@ -131,10 +136,10 @@ class App extends React.Component {
         const url = `https://damp-oasis-24034.herokuapp.com/api/find/title/${searchBox.toLowerCase()}`;
 
         const request = async () => {
-            console.log(url);
+          
             const response = await fetch(url);
             const json = await response.json();
-            console.log(json);
+           
             this.setState( {movies: json, dataDetailsLoaded: true } );
         }
         request();
@@ -146,10 +151,10 @@ class App extends React.Component {
         if(beforeRadioText !== "" && beforeRadio == true){
             const url = `https://damp-oasis-24034.herokuapp.com/api/find/year/0/${beforeRadioText}`;
             const request = async () => {
-                console.log(url);
+          
                 const response = await fetch(url);
                 const json = await response.json();
-                console.log(json);
+          
                 this.setState( {movies: json, dataDetailsLoaded: true } );
             }
             request();
@@ -157,10 +162,10 @@ class App extends React.Component {
         else if(afterRadioText !== "" && afterRadio === true){
             const url = `https://damp-oasis-24034.herokuapp.com/api/find/year/${afterRadioText}/3000`;
             const request = async () => {
-                console.log(url);
+              
                 const response = await fetch(url);
                 const json = await response.json();
-                console.log(json);
+           
                 this.setState( {movies: json, dataDetailsLoaded: true } );
             }
             request();
@@ -168,10 +173,10 @@ class App extends React.Component {
         else if(betweenRadioTextStart !== "" && betweenRadioTextEnd != "" && betweenRadio == true){
             const url = `https://damp-oasis-24034.herokuapp.com/api/find/year/${afterRadioText}/${beforeRadioText}`;
             const request = async () => {
-                console.log(url);
+               
                 const response = await fetch(url);
                 const json = await response.json();
-                console.log(json);
+               
                 this.setState( {movies: json, dataDetailsLoaded: true } );
             }
             request();
@@ -179,10 +184,10 @@ class App extends React.Component {
         else if(belowSlider !== "" && belowRadio == true){
             const url = `https://damp-oasis-24034.herokuapp.com/api/find/rating/0/${belowSlider}`;
             const request = async () => {
-                console.log(url);
+               
                 const response = await fetch(url);
                 const json = await response.json();
-                console.log(json);
+               
                 this.setState( {movies: json, dataDetailsLoaded: true } );
             }
             request();
@@ -190,10 +195,10 @@ class App extends React.Component {
         else if(aboveSlider !== "" && aboveRadio == true){
             const url = `https://damp-oasis-24034.herokuapp.com/api/find/rating/${aboveSlider}/11`;
             const request = async () => {
-                console.log(url);
+               
                 const response = await fetch(url);
                 const json = await response.json();
-                console.log(json);
+                
                 this.setState( {movies: json, dataDetailsLoaded: true } );
             }
             request();
@@ -201,10 +206,10 @@ class App extends React.Component {
         else if(betweenSliderStart !== "" && betweenSliderEnd != "" && betweenRadioRatings == true){
             const url = `https://damp-oasis-24034.herokuapp.com/api/find/rating/${betweenSliderStart}/${betweenSliderEnd}`;
             const request = async () => {
-                console.log(url);
+                
                 const response = await fetch(url);
                 const json = await response.json();
-                console.log(json);
+              
                 this.setState( {movies: json, dataDetailsLoaded: true } );
             }
             request();
@@ -212,18 +217,51 @@ class App extends React.Component {
         else if(searchBox != ""){
             const url = `https://damp-oasis-24034.herokuapp.com/api/find/title/${searchBox.toLowerCase()}`;
             const request = async () => {
-                console.log(url);
+                
                 const response = await fetch(url);
                 const json = await response.json();
-                console.log(json);
+                
                 this.setState( {movies: json, dataDetailsLoaded: true } );
             }
             request();
         }
     }
+    showUserDetails = async () => {
+        const url = //`https://www.randyconnolly.com/funwebdev/3rd/api/movie/movies.php?id=${movie.id}`;
+        `https://damp-oasis-24034.herokuapp.com/api/login/user`;
 
+        
+          
+            const response = await fetch(url);
+            const json = await response.json();
+            this.setState( {userData: json} );
+        
+
+        
+    };
     //adds a movie to favorites
-    addToFavs = (movie) => {
+    addToFavs = async (movie) => {
+        let check = false
+        for(let f of this.state.favs){
+            if(f.id == movie.id){
+                check = true;
+            }
+        }
+        if(check){
+            alert("You have already added this movie to your favorites.");
+        }
+        else{
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ userData: this.state.userData, favourite: movie })
+        };
+        const response = await fetch(`https://damp-oasis-24034.herokuapp.com/api/favourites/`, requestOptions);
+        const data = await response.json();
+        this.fetchFav();
+        this.forceUpdate();
+    }
+        /*
         //1. retrieve data from state
         const data = this.state.favs;
         let alreadyExists = false;
@@ -242,11 +280,23 @@ class App extends React.Component {
             data.push({movie});
             //3. add back to state
             this.setState({favs:data});
-        }
+        }*/
+
+
     };
 
     //deletes a movie from the favorites list
-    deleteFav = (movieID) => {
+    deleteFav = async (movie) => {
+        const requestOptions = {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ userData: this.state.userData, favourite: movie })
+        };
+        const response = await fetch(`https://damp-oasis-24034.herokuapp.com/api/favourites/`, requestOptions);
+        const data = await response.json();
+        this.fetchFav();
+        this.forceUpdate();
+        /*
         // source: http://stackoverflow.com/questions/16491758/remove-objects-from-array-by-object-property
         const data = this.state.favs;
         // get index of object with movie id
@@ -255,9 +305,13 @@ class App extends React.Component {
         data.splice(removeIndex, 1);
         //3. add back to state
         this.setState({favs:data});
-        // show dropdown again
+        // show dropdown again*/
     };
-
+    fetchFav = async () => {
+        const response = await fetch(`https://damp-oasis-24034.herokuapp.com/api/favourites/${this.state.userData.id}`);
+        const data = await response.json();
+        this.setState( {favs: data});
+    }
 
     render() {
         return (    

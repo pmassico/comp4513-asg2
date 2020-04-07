@@ -41,7 +41,7 @@ class Favorites extends React.Component {
     };
 
     render() {
-
+        console.log(this.props.movie);
         return (
             <div className="is-pulled-right">
                     <button className="button" id="fav-button">
@@ -52,7 +52,7 @@ class Favorites extends React.Component {
                     </button>
                 <div id="fav-dropdown" className="hidden">
                     <div id="fav-content">
-                        {this.props.movie && this.props.movie.map( (m) => <FavoriteItem movie={m.movie} key={m.movie.id} showMovieDetails={this.props.showMovieDetails} deleteFav={this.props.deleteFav} />)}
+                        {this.props.movie && this.props.movie.map( (m) => <FavoriteItem movie={m} key={m.id} showMovieDetails={this.props.showMovieDetails} deleteFav={this.props.deleteFav} />)}
 
 
                         {}

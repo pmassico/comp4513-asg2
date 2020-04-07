@@ -5,7 +5,7 @@ import './SingleMovie.css';
 //This component creates a single movie entry for the parent table component
 class SingleMovie extends React.Component {
     //on click show movie details
-    handleViewClick = () => {
+    handleViewClick = async () => {
         this.props.showMovieDetails(this.props.movie);
     };
 

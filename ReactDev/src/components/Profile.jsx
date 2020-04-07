@@ -48,7 +48,7 @@ class Profile extends React.Component {
 
     showUserDetails = () => {
         const url = //`https://www.randyconnolly.com/funwebdev/3rd/api/movie/movies.php?id=${movie.id}`;
-        `http://localhost:5000/api/login/user`;
+        `https://damp-oasis-24034.herokuapp.com/api/login/user`;
 
         const request = async () => {
             console.log(url);

@@ -3,8 +3,6 @@ const router = express.Router();
 const passport = require('passport');
 const helper = require('./helpers.js');
 const fs = require('fs');
-const localStorage = require('localStorage')
-const cookie = require('cookie');
 
 // Welcome Page
 router.get('/home',  helper.ensureAuthenticated, (req, resp) => {

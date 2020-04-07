@@ -4,7 +4,7 @@ const movieControllers = require("../controllers/movieControllers");
 
 const router = express.Router();
 
-router.get("/", movieControllers.getFavourites);
+router.get("/:id", movieControllers.getFavourites);
 router.post("/", movieControllers.addFavourite);
 router.delete("/", movieControllers.removeFavourite);
 
