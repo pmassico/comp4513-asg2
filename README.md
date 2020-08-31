@@ -3,6 +3,7 @@
 ### Key role: Front-end design/functionality
 
 **Main Directory:** [comp4513-asg2/ReactDev/src/components](https://github.com/pmassico/comp4513-asg2/tree/master/ReactDev/src/components)
+Deployed at: https://web3asg2.web.app/browse
 
 **Views:**
 * [Home.jsx:](https://github.com/pmassico/comp4513-asg2/blob/master/ReactDev/src/components/Home.jsx) Landing page
