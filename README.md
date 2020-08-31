@@ -14,4 +14,4 @@
 * [SingleMovie.jsx:](https://github.com/pmassico/comp4513-asg2/blob/master/ReactDev/src/components/SingleMovie.jsx) Core component of "MovieList"
 
 ### [Click to view demo](https://web3asg2.web.app/browse)
-(give it a minute to load, and then refresh)
+(give it a minute to load, and then refresh. image URLs are currently broken)
