@@ -3,7 +3,6 @@
 ### Key role: Front-end design/functionality
 
 **Main Directory:** [comp4513-asg2/ReactDev/src/components](https://github.com/pmassico/comp4513-asg2/tree/master/ReactDev/src/components)
-Deployed at: https://web3asg2.web.app/browse
 
 **Views:**
 * [Home.jsx:](https://github.com/pmassico/comp4513-asg2/blob/master/ReactDev/src/components/Home.jsx) Landing page
@@ -13,3 +12,6 @@ Deployed at: https://web3asg2.web.app/browse
 **Components:**
 * [MovieList.jsx:](https://github.com/pmassico/comp4513-asg2/blob/master/ReactDev/src/components/MovieList.jsx) A list of "SingleMovie" components that can be sorted and filtered
 * [SingleMovie.jsx:](https://github.com/pmassico/comp4513-asg2/blob/master/ReactDev/src/components/SingleMovie.jsx) Core component of "MovieList"
+
+### [Click to view demo](https://web3asg2.web.app/browse)
+(give it a minute to load, and then refresh)
