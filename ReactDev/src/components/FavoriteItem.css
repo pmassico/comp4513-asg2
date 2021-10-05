@@ -1,0 +1,24 @@
+/*figure {*/
+/*    position: relative;*/
+/*    margin: 5px;*/
+/*}*/
+
+.delete {
+    display: block;
+    top: -8.3rem;
+    left: 0.2rem;
+    transform: scale(0);
+}
+
+#fav-content figure:hover .delete {
+    display: block;
+    transform: scale(1);
+
+    /*top: 30px;*/
+    /*right: 10px;*/
+}
+
+#fav-content figure {
+    margin-left: 80px;
+}
+

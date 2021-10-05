@@ -1,0 +1,18 @@
+.hero-body{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: none;
+}
+
+.hero {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: solid 1px;
+    border-color: black;
+        /*#dbdbdb*/
+}
+
+header button {
+    margin-top: 7px;
+}

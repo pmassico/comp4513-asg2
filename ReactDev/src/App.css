@@ -1,0 +1,70 @@
+.list-transition-enter, .list-transition-appear {
+/*We give the list the initial dimension of the list button*/
+top: 0;
+width: 120px;
+max-height: 40px;
+color: transparent;
+background-color: #5a564c;
+}
+/* This is where we can add the transition*/
+.list-transition-enter-active, .list-transition-appear-active {
+top: 45px;
+width: 200px;
+max-height: 200px;
+background-color: #9e8949;
+transition: all 400ms;
+}
+
+/* typography */
+
+h1 {
+    font-family: 'Baloo 2', 'cursive';
+}
+
+h2, h3, h4, h5, h6, .title {
+    font-family: 'Avenir', 'cursive';
+}
+
+button {
+    font-family: 'Avenir-Medium', 'cursive';
+}
+
+input, p {
+    font-family: 'Avenir-Book', 'cursive';
+    font-family: 'Avenir-Book', 'cursive';
+}
+
+.single-movie .title {
+    font-family: 'Avenir-Black', 'cursive';
+    color: black;
+}
+
+.single-movie .subtitle {
+    color: black;
+}
+
+.filter-dropdown {
+    font-family: 'Roboto Mono', 'cursive';
+    color: gray;
+}
+
+#footer-runtime, #footer-release, #footer-details {
+    font-family: 'Roboto Mono', 'cursive';
+    color: gray;
+    font-size: 80%;
+}
+
+#details-container .is-3, #details-container .is-2 {
+    font-family: "Avenir-Black", 'cursive';
+    font-size: 3em;
+}
+
+#details-container p, #details-container .title, #details-container li {
+    color: black;
+}
+
+/* movie browser title */
+#browse-title {
+    font-family: "Avenir-Black", 'cursive';
+    color: black;
+}

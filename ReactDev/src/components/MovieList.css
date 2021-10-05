@@ -1,0 +1,63 @@
+.cascade-appear {
+    opacity: 0.01;
+    transform: translate(0, 20px);
+}
+
+.cascade-appear.cascade-appear-active {
+    opacity: 1;
+    transform: translate(0, 0);
+    transition: all 200ms linear;
+}
+
+.movielist-container div:nth-child(2) {
+    transition-delay: 100ms;
+}
+
+.movielist-container div:nth-child(3) {
+    transition-delay: 200ms;
+}
+
+.movielist-container div:nth-child(4) {
+    transition-delay: 300ms;
+}
+
+.movielist-container div:nth-child(5) {
+    transition-delay: 400ms;
+}
+
+.movielist-container div:nth-child(6) {
+    transition-delay: 500ms;
+}
+
+.movielist-container div:nth-child(7) {
+    transition-delay: 600ms;
+}
+
+.movielist-container div:nth-child(8) {
+    transition-delay: 700ms;
+}
+
+.level-left .title:hover {
+    cursor: pointer;
+}
+
+#movieList {
+    overflow: scroll;
+    height: calc(100vh - 237px);
+}
+
+.movielist-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding-right: 100px;
+}
+
+.single-movie {
+    flex-basis: auto;
+    margin-bottom: 1rem;
+}
+
+.single-movie:not(:last-child) {
+    margin-right: 1rem;
+}
+

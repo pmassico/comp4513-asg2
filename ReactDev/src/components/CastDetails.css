@@ -1,0 +1,9 @@
+#castDetailsBox {
+    overflow: scroll;
+    height: 512px;
+}
+
+#closeCast {
+    text-align: center;
+}
+
